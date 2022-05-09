@@ -1,4 +1,4 @@
-#include "Jogo.h"
+#include "../headers/Jogo.h"
 
 Jogo::Jogo() : window(sf::VideoMode(450, 450), "SFML works!")
 {

@@ -1,4 +1,4 @@
-#include "Entidade.h"
+#include "../headers/Entidade.h"
 
 Entidade::Entidade() : graficos(nullptr)
 {

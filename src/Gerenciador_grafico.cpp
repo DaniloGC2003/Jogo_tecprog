@@ -1,4 +1,4 @@
-#include "Gerenciador_grafico.h"
+#include "../headers/Gerenciador_grafico.h"
 Gerenciador_grafico::Gerenciador_grafico() : janela(nullptr)
 {
 	
