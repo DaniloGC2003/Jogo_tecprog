@@ -32,7 +32,7 @@ public:
 
 	void push(TL* info) {
 
-		if (pPrimeiro == NULL) {
+		if (pPrimeiro == nullptr) {
 			pPrimeiro = new Elemento<TL>;
 			pPrimeiro->setpInfo(info);
 			pUltimo = pPrimeiro;
@@ -40,7 +40,7 @@ public:
 		else {
 			Elemento<TL>* temp = new Elemento<TL>;
 			temp->setpInfo(info);
-			pUltimo->getpProx(temp);
+			pUltimo->setpProx(temp);
 			pUltimo = temp;
 		}
 		len++;
@@ -49,9 +49,9 @@ public:
 	void pop(TL* info) {
 
 		Elemento<TL>* temp = pPrimeiro;
-		Elemento<TL>* tempAnt = NULL;
+		Elemento<TL>* tempAnt = nullptr;
 
-		while (temp->getpInfo != info) {
+		while (temp->getpInfo() != info) {
 
 			tempAnt = temp;
 			temp = temp->getpProx();
@@ -60,13 +60,13 @@ public:
 			pPrimeiro = temp->getpProx();
 		}
 		else if (temp == pUltimo) {//Eliminando o ultimo elemento da lista
-			tempAnt->setpProx(NULL);
-			pUltimo=tempAnt:
+			tempAnt->setpProx(nullptr);
+			pUltimo = tempAnt;
 		}
 		else { //Eliminando elemento do meio da lista
 			temp->setpProx(temp->getpProx());
 		}
-		delete tem;
+		delete temp;
 		len--;
 	}
 };
@@ -74,8 +74,8 @@ public:
 template<class TL>
 inline Lista<TL>::Lista()
 {
-	pPrimeiro = NULL;
-	pUltimo = NULL;
+	pPrimeiro = nullptr;
+	pUltimo = nullptr;
 	len = 0;
 }
 

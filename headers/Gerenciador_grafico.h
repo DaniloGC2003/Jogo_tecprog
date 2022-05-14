@@ -4,11 +4,12 @@
 class Gerenciador_grafico
 {
 private:
-	sf::RenderWindow* janela;
+	sf::RenderWindow janela;
 public:
 	Gerenciador_grafico();
 	~Gerenciador_grafico();
-	void setWindow(sf::RenderWindow* pW);
+	sf::RenderWindow* getJanela();
 	void desenhar(sf::RectangleShape* hitbox);
+	//void mostrar()
 };
 

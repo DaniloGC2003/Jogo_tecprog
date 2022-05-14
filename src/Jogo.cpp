@@ -1,9 +1,9 @@
 #include "../headers/Jogo.h"
 
-Jogo::Jogo() : window(sf::VideoMode(450, 450), "SFML works!")
+Jogo::Jogo() : window(graficos.getJanela())
 {
-    graficos.setWindow(&window);
     jogador.setTamanho(sf::Vector2f(100.f, 50.f));
+    entidades.pushEntidade(&jogador);
     Executar();
 }
 
@@ -13,19 +13,22 @@ Jogo::~Jogo()
 
 void Jogo::Executar()
 {
-    while (window.isOpen())
+    while (window->isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (window->pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                window.close();
+                window->close();
         }
 
-        window.clear();
-
-        graficos.desenhar(jogador.getHitbox());
-        window.display();
+        window->clear();
+        for (int i = 0; i < entidades.getTamanho(); i++)
+        {
+            graficos.desenhar(entidades.getEntidade(i)->getHitbox());
+        }
+        //graficos.desenhar(jogador.getHitbox());
+        window->display();
     }
 }
 

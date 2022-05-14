@@ -1,20 +1,19 @@
 #include "../headers/Gerenciador_grafico.h"
-Gerenciador_grafico::Gerenciador_grafico() : janela(nullptr)
+Gerenciador_grafico::Gerenciador_grafico() : janela(sf::VideoMode(450, 450), "SFML works!")
 {
 	
 }
 
-Gerenciador_grafico::~Gerenciador_grafico()
+Gerenciador_grafico::~Gerenciador_grafico() 
 {
-	janela = nullptr;
 }
 
-void Gerenciador_grafico::setWindow(sf::RenderWindow* pW)
+sf::RenderWindow* Gerenciador_grafico::getJanela()
 {
-	janela = pW;
+	return &janela;
 }
 
 void Gerenciador_grafico::desenhar(sf::RectangleShape* hitbox)
 {
-	janela->draw(*hitbox);
+	janela.draw(*hitbox);
 }
