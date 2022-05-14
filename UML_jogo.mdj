@@ -2070,12 +2070,32 @@
 									"model": {
 										"$ref": "AAAAAAGAoHE0BHezy5g="
 									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGAwq4/Hn1khgs=",
+											"_parent": {
+												"$ref": "AAAAAAGAoHE0BXe8jnY="
+											},
+											"model": {
+												"$ref": "AAAAAAGAwq4+931bReE="
+											},
+											"fillColor": "#8acbeb",
+											"font": "Arial;13;0",
+											"left": 1277,
+											"top": 883,
+											"width": 231,
+											"height": 13,
+											"text": "+getAnimacao(): Animacao*",
+											"horizontalAlignment": 0
+										}
+									],
 									"fillColor": "#8acbeb",
 									"font": "Arial;13;0",
 									"left": 1272,
 									"top": 878,
 									"width": 241,
-									"height": 10
+									"height": 23
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -5222,11 +5242,24 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 1392,
-							"top": 488,
-							"width": 120,
-							"height": 168,
-							"text": "loop principal verifica se teclas estao pressionadas"
+							"left": 1216,
+							"top": 408,
+							"width": 145,
+							"height": 193,
+							"text": "loop principal verifica se teclas estao pressionadas. \npor enquanto, jogador é criado no jogo, mas depois será criado na fase"
+						},
+						{
+							"_type": "UMLTextBoxView",
+							"_id": "AAAAAAGAv9TYn0MMHsc=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 1304,
+							"top": 1072,
+							"width": 82.26806640625,
+							"height": 72,
+							"text": "criar clase personagem"
 						}
 					]
 				},
@@ -5638,6 +5671,28 @@
 									"type": {
 										"$ref": "AAAAAAGAuoFZmdiFaz0="
 									}
+								}
+							],
+							"operations": [
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAGAwq4+931bReE=",
+									"_parent": {
+										"$ref": "AAAAAAGAoHE0BHezy5g="
+									},
+									"name": "getAnimacao",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAGAwq6lTn6CqWc=",
+											"_parent": {
+												"$ref": "AAAAAAGAwq4+931bReE="
+											},
+											"name": "Parameter1",
+											"type": "Animacao*",
+											"direction": "return"
+										}
+									]
 								}
 							]
 						}
