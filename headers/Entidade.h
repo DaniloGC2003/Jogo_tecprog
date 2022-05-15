@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Ente.h"
+#include "ID.h"
 
 namespace Entities {
 
@@ -10,7 +11,7 @@ namespace Entities {
     	sf::Vector2f hitbox;
 
     public:
-	Entidade(ID id, sf::Vector2f pos, sf::Vector2f hit);
+	Entidade(ID_Ent::ID id, sf::Vector2f pos, sf::Vector2f hit);
     	Entidade();
     	virtual ~Entidade();
 	    
@@ -26,7 +27,7 @@ namespace Entities {
     	virtual void update(float dt) = 0;
     	virtual void initialize() = 0;
 
-    	ID getId() const;
+    	ID_Ent::ID getId() const;
     	void Move(sf::Vector2f vec);
 
     };
