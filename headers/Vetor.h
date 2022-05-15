@@ -29,6 +29,8 @@ namespace coordenadas
 
 
     };
+    
+    typedef Vetor<float> vetorfloat;
 
     template<typename TL>
     inline Vetor<TL>::Vetor(TL x, TL y) : x(x), y(y)
