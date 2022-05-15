@@ -1,24 +1,51 @@
-#include "../headers/Entidade.h"
+#include "Entidade.h"
 
-Entidade::Entidade() : graficos(nullptr)
-{
+#include "Animacao.h"
+
+Entidade::Entidade(ID id, sf::Vector2f pos, sf::Vector2f hit) :
+Ente(id, pos) {
+    hitbox = hit;
+    velocidade = sf::Vector2f(0.0f, 0.0f);
+    
 }
 
-Entidade::Entidade(sf::Vector2f tamanho) : graficos(nullptr)
-{
+Entidade::Entidade() {
+    hitbox = sf::Vector2f(0.0f, 0.0f);
+    velocitdade = sf::Vector2f(0.0f, 0.0f);
+   
 }
 
-Entidade::~Entidade()
-{
-	graficos = nullptr;
+Entidade::~Entidade() {
 }
 
-sf::RectangleShape* Entidade::getHitbox()
-{
-	return &hitbox;
+void Entidade::mudarPoscao(const Vector2f pos) {
+    mudarPos(pos);
 }
 
-void Entidade::setTamanho(sf::Vector2f tam)
-{
-	hitbox.setSize(tam);
+Vector2f Entity::getPosicao() const {
+    return getPos();
+}
+
+void Entity::setVelocidade(const Vector2f vel) {
+    velocidade = vel;
+}
+
+Vector2f Entidade::getVelocidade() const {
+    return velocidade;
+}
+
+void Entidade::setHitbox(const Vector2f hit) {
+    hitbox = hit;
+}
+
+Vector2f Entidade::getHitbox() const {
+    return hitbox;
+}
+
+ID Entidade::getId() const {
+    return getID();
+}
+
+void Entidade::Move(sf::Vector2f vec) {
+    MoveCorpo(vec);
 }
