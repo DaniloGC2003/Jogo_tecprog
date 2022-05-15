@@ -2,7 +2,7 @@
 
 #include "Animacao.h"
 
-Entidade::Entidade(ID id, sf::Vector2f pos, sf::Vector2f hit) :
+Entidade::Entidade(ID_Ent::ID id, sf::Vector2f pos, sf::Vector2f hit) :
 Ente(id, pos) {
     hitbox = hit;
     velocidade = sf::Vector2f(0.0f, 0.0f);
@@ -42,7 +42,7 @@ Vector2f Entidade::getHitbox() const {
     return hitbox;
 }
 
-ID Entidade::getId() const {
+ID_Ent::ID Entidade::getId() const {
     return getID();
 }
 
