@@ -2,43 +2,42 @@
 
 #include "Animacao.h"
 
-Entidade::Entidade(ID_Ent::ID id, sf::Vector2f pos, sf::Vector2f hit) :
+Entidade::Entidade(ID_Ent::ID id, coordenadas::vetorfloat pos, sf::RectangleShape hit) :
 Ente(id, pos) {
     hitbox = hit;
-    velocidade = sf::Vector2f(0.0f, 0.0f);
+    velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     
 }
 
-Entidade::Entidade() {
-    hitbox = sf::Vector2f(0.0f, 0.0f);
-    velocitdade = sf::Vector2f(0.0f, 0.0f);
+Entidade::Entidade() : hitbox() {
+    velocitdade = coordenadas::vetorfloat(0.0f, 0.0f);
    
 }
 
 Entidade::~Entidade() {
 }
 
-void Entidade::mudarPoscao(const Vector2f pos) {
+void Entidade::mudarPosicao(coordenadas::vetorfloat pos) {
     mudarPos(pos);
 }
 
-Vector2f Entity::getPosicao() const {
+coordenadas::vetorfloat Entidade::getPosicao() const {
     return getPos();
 }
 
-void Entity::setVelocidade(const Vector2f vel) {
+void Entidade::setVelocidade(coordenadas::vetorfloat vel) {
     velocidade = vel;
 }
 
-Vector2f Entidade::getVelocidade() const {
+coordenadas::vetorfloat Entidade::getVelocidade() const {
     return velocidade;
 }
 
-void Entidade::setHitbox(const Vector2f hit) {
+void Entidade::setHitbox(sf:RectangleShape hit) {
     hitbox = hit;
 }
 
-Vector2f Entidade::getHitbox() const {
+sf:RectangleShape  Entidade::getHitbox() const {
     return hitbox;
 }
 
@@ -46,6 +45,6 @@ ID_Ent::ID Entidade::getId() const {
     return getID();
 }
 
-void Entidade::Move(sf::Vector2f vec) {
+void Entidade::Move(coordenadas::vetorfloat vec) {
     MoveCorpo(vec);
 }
