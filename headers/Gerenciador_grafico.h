@@ -8,6 +8,7 @@ private:
 public:
 	Gerenciador_grafico();
 	~Gerenciador_grafico();
+	Gerenciador_grafico* getInstance();
 	sf::RenderWindow* getJanela();
 	void desenhar(sf::RectangleShape* hitbox);
 	//void mostrar()

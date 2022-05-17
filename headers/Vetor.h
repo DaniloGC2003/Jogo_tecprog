@@ -22,12 +22,6 @@ namespace coordenadas
         void operator= (Vetor<TL> v);//set coordenadas
         void operator+= (Vetor<TL> v);
         void operator-= (Vetor<TL> v);
-
-
-
-
-
-
     };
     
     typedef Vetor<float> vetorfloat;

@@ -2744,7 +2744,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 728,
+									"left": 730,
 									"top": 579,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2765,7 +2765,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 728,
+									"left": 730,
 									"top": 564,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2786,7 +2786,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 728,
+									"left": 730,
 									"top": 609,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -2807,7 +2807,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 641,
+									"left": 646,
 									"top": 579,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -2828,7 +2828,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 644,
+									"left": 649,
 									"top": 565,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -2849,7 +2849,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 637,
+									"left": 642,
 									"top": 606,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -2959,7 +2959,7 @@
 							"tail": {
 								"$ref": "AAAAAAGAoITxVqEaEuc="
 							},
-							"points": "616:600;840:600",
+							"points": "621:600;840:600",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGAoIZ6Tqlor+Q="
@@ -3038,7 +3038,7 @@
 											"font": "Arial;13;1",
 											"left": 445,
 											"top": 551,
-											"width": 166.6005859375,
+											"width": 171.65966796875,
 											"height": 13,
 											"text": "Lista_entidades"
 										},
@@ -3076,7 +3076,7 @@
 									"font": "Arial;13;0",
 									"left": 440,
 									"top": 544,
-									"width": 176.6005859375,
+									"width": 181.65966796875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAoITxVqEc+pA="
@@ -3114,9 +3114,9 @@
 											"font": "Arial;13;0",
 											"left": 445,
 											"top": 574,
-											"width": 166.6005859375,
+											"width": 171.65966796875,
 											"height": 13,
-											"text": "+Entidades: Lista<Entidade>",
+											"text": "+Entidades: Lista<Entidade*>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3124,7 +3124,7 @@
 									"font": "Arial;13;0",
 									"left": 440,
 									"top": 569,
-									"width": 176.6005859375,
+									"width": 181.65966796875,
 									"height": 23
 								},
 								{
@@ -3140,7 +3140,7 @@
 									"font": "Arial;13;0",
 									"left": 440,
 									"top": 592,
-									"width": 176.6005859375,
+									"width": 181.65966796875,
 									"height": 10
 								},
 								{
@@ -3186,7 +3186,7 @@
 							"containerChangeable": true,
 							"left": 440,
 							"top": 544,
-							"width": 176.6005859375,
+							"width": 181.65966796875,
 							"height": 152,
 							"nameCompartment": {
 								"$ref": "AAAAAAGAoITxVqEbN/M="
@@ -5992,7 +5992,7 @@
 										"$ref": "AAAAAAGAoITxVaEYpOg="
 									},
 									"name": "Entidades",
-									"type": "Lista<Entidade>"
+									"type": "Lista<Entidade*>"
 								}
 							]
 						}

@@ -1,14 +1,20 @@
-#include "Ente.h"
+#include "../headers/Ente.h"
+//#include "../headers/ID.h"
 
-#include "Animacao.h"
 
-Ente::Ente(ID_Ent::ID id, coordenadas::vetorfloat pos) :
-    RectangleShape(new Animacao()),
+/*Ente::Ente(ID_Ent::ID id, coordenadas::vetorfloat pos) :
+    RectangleShape(new Animation::Animacao()),
     id(id),
-    posicao(pos) { }
+    posicao(pos) { }*/
+
+Ente::Ente(coordenadas::vetorfloat pos) : RectangleShape(new Animation::Animacao()),
+ posicao(pos)
+{
+
+}
 
 Ente::Ente() {
-    this->id = ID_Ent::empty;
+    //this->id = ID_Ent::empty;
     RectangleShape = nullptr;
 }
 
@@ -20,16 +26,17 @@ void Ente::mudarPos(coordenadas::vetorfloat pos) {
     posicao = pos;
 }
 
-coordenadas::vetorfloat Ente::getPos() {
-    return position;
+coordenadas::vetorfloat Ente::getPos() const{
+    return posicao;
 }
 
-ID_Ent::ID Ente::getID(){
+/*ID_Ent::ID Ente::getID() {
     return id;
-}
+}*/
 
 void Ente::MoveCorpo(coordenadas::vetorfloat v) {
-    posicao = coordenadas::vetorfloat(posicao.x + v.x, posicao.y + v.y);
+    //posicao = coordenadas::vetorfloat(posicao.x + v.x, posicao.y + v.y);
+    //posicao += v;
 }
 
 void Ente::render() {

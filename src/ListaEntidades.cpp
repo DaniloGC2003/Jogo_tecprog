@@ -9,17 +9,17 @@ ListaEntidades::~ListaEntidades()
 {
 }
 
-void ListaEntidades::pushEntidade(Entidade* Ent)
+void ListaEntidades::pushEntidade(Entities::Entidade* Ent)
 {
 	Entidades.push(Ent);
 }
 
-void ListaEntidades::deleteEntidade(Entidade* ent)
+void ListaEntidades::deleteEntidade(Entities::Entidade* ent)
 {
 	Entidades.pop(ent);
 }
 
-Entidade* ListaEntidades::getEntidade(int pos)
+Entities::Entidade* ListaEntidades::getEntidade(int pos)
 {
 	return Entidades.getpInfo(pos);
 }

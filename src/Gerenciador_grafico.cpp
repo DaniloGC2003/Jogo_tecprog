@@ -8,6 +8,11 @@ Gerenciador_grafico::~Gerenciador_grafico()
 {
 }
 
+Gerenciador_grafico* Gerenciador_grafico::getInstance()
+{
+	return this;
+}
+
 sf::RenderWindow* Gerenciador_grafico::getJanela()
 {
 	return &janela;
