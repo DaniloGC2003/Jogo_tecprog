@@ -28,6 +28,9 @@ public:
     void render();
     void Update(int row, float deltatime, bool faceRight, coordenadas::vetorfloat position);
     void setGerenciadorGrafico (Gerenciador_grafico* pGrafM) { pGraf = pGrafM; }
+
+    sf::RectangleShape* getCorpo() { return &corpo; }
+
 };
 
 }

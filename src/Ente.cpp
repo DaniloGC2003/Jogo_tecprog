@@ -7,19 +7,18 @@
     id(id),
     posicao(pos) { }*/
 
-Ente::Ente(coordenadas::vetorfloat pos) : RectangleShape(new Animation::Animacao()),
+Ente::Ente(coordenadas::vetorfloat pos) : RectangleShape(),
  posicao(pos)
 {
 
 }
 
-Ente::Ente() {
+Ente::Ente() : RectangleShape() {
     //this->id = ID_Ent::empty;
-    RectangleShape = nullptr;
 }
 
 Ente::~Ente() {
-    delete (RectangleShape);
+
 }
 
 void Ente::mudarPos(coordenadas::vetorfloat pos) {
@@ -36,9 +35,9 @@ coordenadas::vetorfloat Ente::getPos() const{
 
 void Ente::MoveCorpo(coordenadas::vetorfloat v) {
     //posicao = coordenadas::vetorfloat(posicao.x + v.x, posicao.y + v.y);
-    //posicao += v;
+    posicao += v;
 }
 
 void Ente::render() {
-    RectangleShape->render();
+    RectangleShape.render();
 }

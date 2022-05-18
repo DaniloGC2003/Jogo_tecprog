@@ -8,13 +8,10 @@ namespace Entities {
 
     class Entidade : public Ente {
     protected:
-        coordenadas::vetorfloat posicao;
         coordenadas::vetorfloat velocidade;
-        sf::RectangleShape hitbox;
-
     public:
         //Entidade(ID_Ent::ID id, coordenadas::vetorfloat pos, sf::RectangleShape hit);
-        Entidade(coordenadas::vetorfloat pos, sf::RectangleShape hit);
+        Entidade(coordenadas::vetorfloat pos);
         Entidade();
         //virtual ~Entidade();
         ~Entidade();
@@ -25,7 +22,6 @@ namespace Entities {
         void setVelocidade(coordenadas::vetorfloat vel);
         coordenadas::vetorfloat getVelocidade() const;
 
-        void setHitbox(sf::RectangleShape hit);
         sf::RectangleShape* getHitbox();
 
         //virtual void update(float dt) = 0;

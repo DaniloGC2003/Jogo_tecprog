@@ -8,6 +8,7 @@ namespace Animation
         imagemCount(coordenadas::vetoru(0, 0)),
         textura(NULL),
         imagemAtual(coordenadas::vetoru(0, 0)) {
+        corpo.setSize(sf::Vector2f(50.f, 50.f));
         TempoTotal = 0.0f;
     }
 
@@ -66,5 +67,6 @@ namespace Animation
     void Animacao::render() {
         pGraf->desenhar(&corpo);
     }
+     
 
 }

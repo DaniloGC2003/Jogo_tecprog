@@ -4,6 +4,7 @@ Jogo::Jogo() : window(graficos.getJanela()), jogador()
 {
     //jogador.setTamanho(sf::Vector2f(100.f, 50.f));
     //jogador.
+    //jogador.getAnimacao()->
     entidades.pushEntidade(&jogador);
     Executar();
 }
@@ -28,7 +29,7 @@ void Jogo::Executar()
         {
             graficos.desenhar(entidades.getEntidade(i)->getHitbox());
         }
-        graficos.desenhar(jogador.getHitbox());
+  
         window->display();//fazer loop p lista tbm
     }
 }

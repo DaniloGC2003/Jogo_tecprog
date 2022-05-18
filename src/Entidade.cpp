@@ -8,11 +8,12 @@ namespace Entities
         velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     }*/
 
-    Entidade::Entidade(coordenadas::vetorfloat pos, sf::RectangleShape hit) : Ente(pos), hitbox(hit)
+    Entidade::Entidade(coordenadas::vetorfloat pos) : Ente(pos)
     {
+        velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     }
 
-    Entidade::Entidade() : hitbox(sf::Vector2f(50.f,50.f)) {
+    Entidade::Entidade() {
         velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
 
     }
@@ -36,12 +37,8 @@ namespace Entities
         return velocidade;
     }
 
-    void Entidade::setHitbox(sf::RectangleShape hit) {
-        hitbox = hit;
-    }
-
     sf::RectangleShape* Entidade::getHitbox() {
-        return &hitbox;
+        return getAnimacao()->getCorpo();
     }
 
     /*ID_Ent::ID Entidade::getId() {
