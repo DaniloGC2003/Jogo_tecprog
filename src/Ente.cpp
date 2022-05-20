@@ -36,6 +36,7 @@ coordenadas::vetorfloat Ente::getPos() const{
 void Ente::MoveCorpo(coordenadas::vetorfloat v) {
     //posicao = coordenadas::vetorfloat(posicao.x + v.x, posicao.y + v.y);
     posicao += v;
+    RectangleShape.setPosicao(posicao);
 }
 
 void Ente::render() {

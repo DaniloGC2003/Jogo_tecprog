@@ -28,7 +28,7 @@ public:
     void render();
     void Update(int row, float deltatime, bool faceRight, coordenadas::vetorfloat position);
     void setGerenciadorGrafico (Gerenciador_grafico* pGrafM) { pGraf = pGrafM; }
-
+    void setPosicao(coordenadas::vetorfloat v) { corpo.setPosition(v.getX(), v.getY()); }
     sf::RectangleShape* getCorpo() { return &corpo; }
 
 };
