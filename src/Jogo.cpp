@@ -1,17 +1,30 @@
 #include "../headers/Jogo.h"
 
-Jogo::Jogo() : window(graficos.getJanela()), jogador()
+Jogo::Jogo() : window(graficos.getJanela()), graficos(), colisoes(), jogador(), plataforma()
 {
-    //jogador.setTamanho(sf::Vector2f(100.f, 50.f));
-    //jogador.
-    //jogador.getAnimacao()->
     jogador.setVelocidade(coordenadas::vetorfloat(0.1f,0.1f)); 
-    entidades.pushEntidade(&jogador);
+    jogador.getHitbox()->setOrigin(25.0f, 25.0f);
+    personagens.pushEntidade(&jogador);
+    
+    plataforma.getHitbox()->setFillColor(sf::Color::Green);
+    plataforma.getHitbox()->setOrigin(25.0f, 25.0f);
+    plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
+    estaticas.pushEntidade(&plataforma);
     Executar();
 }
 
 Jogo::~Jogo()
 {
+}
+
+ListaEntidades* Jogo::getPersonagens()
+{
+    return &personagens;
+}
+
+ListaEntidades* Jogo::getEstaticas()
+{
+    return &estaticas;
 }
 
 void Jogo::Executar()
@@ -42,11 +55,17 @@ void Jogo::Executar()
         {
             jogador.Move(coordenadas::vetorfloat(0.f, -jogador.getVelocidade().getY()));
         }
-        for (int i = 0; i < entidades.getTamanho(); i++)
+
+       colisoes.colidir(&personagens, &estaticas);
+
+        for (int i = 0; i < personagens.getTamanho(); i++)
         {
-            graficos.desenhar(entidades.getEntidade(i)->getHitbox());
+            graficos.desenhar(personagens.getEntidade(i)->getHitbox());
         }
-  
+        for (int i = 0; i < estaticas.getTamanho(); i++)
+        {
+            graficos.desenhar(estaticas.getEntidade(i)->getHitbox());
+        }
         window->display();//fazer loop p lista tbm
     }
 }

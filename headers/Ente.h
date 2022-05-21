@@ -19,6 +19,7 @@ public:
     void MoveCorpo(coordenadas::vetorfloat vec);
 
     Animation::Animacao* getAnimacao() { return &RectangleShape; }
+    coordenadas::vetorfloat getTamanho();
     //ID_Ent::ID getID();
 
     //virtual void initialize() = 0;
