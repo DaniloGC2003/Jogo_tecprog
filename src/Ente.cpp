@@ -23,6 +23,7 @@ Ente::~Ente() {
 
 void Ente::mudarPos(coordenadas::vetorfloat pos) {
     posicao = pos;
+    RectangleShape.setPosicao(pos);
 }
 
 coordenadas::vetorfloat Ente::getPos() const{
@@ -37,6 +38,15 @@ void Ente::MoveCorpo(coordenadas::vetorfloat v) {
     //posicao = coordenadas::vetorfloat(posicao.x + v.x, posicao.y + v.y);
     posicao += v;
     RectangleShape.setPosicao(posicao);
+   // printf("posicao: %f %f\n", posicao.getX(), posicao.getY());
+}
+
+coordenadas::vetorfloat Ente::getTamanho()
+{
+    float coordx = RectangleShape.getCorpo()->getSize().x;
+    float coordy = RectangleShape.getCorpo()->getSize().y;
+    //printf("%f e %f\n", coordx, coordy);
+    return coordenadas::vetorfloat(coordx, coordy);
 }
 
 void Ente::render() {
