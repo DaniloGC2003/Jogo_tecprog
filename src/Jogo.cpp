@@ -3,13 +3,18 @@
 Jogo::Jogo() : window(graficos.getJanela()), graficos(), colisoes(), jogador(), plataforma()
 {
     jogador.setVelocidade(coordenadas::vetorfloat(0.1f,0.1f)); 
-    jogador.getHitbox()->setOrigin(25.0f, 25.0f);
+    //jogador.getHitbox()->setOrigin(20.0f, 20.0f);
     personagens.pushEntidade(&jogador);
-    
-    plataforma.getHitbox()->setFillColor(sf::Color::Green);
-    plataforma.getHitbox()->setOrigin(25.0f, 25.0f);
-    plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
+    //jogador.getHitbox()->setFillColor(sf::Color::Blue);
+    jogador.getAnimacao()->inicializaTextura("TheUndying.png",coordenadas::vetorfloat(-10.f,-100.f));
+
+    //plataforma.getHitbox()->setFillColor(sf::Color::Red);
+    //plataforma.getHitbox()->setOrigin(25.0f, 25.0f);
+    //plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
+
     estaticas.pushEntidade(&plataforma);
+    plataforma.getAnimacao()->inicializaTextura("Ball.png",coordenadas::vetorfloat(-50.f,-250.f));
+    
     Executar();
 }
 
@@ -58,13 +63,24 @@ void Jogo::Executar()
 
        colisoes.colidir(&personagens, &estaticas);
 
-        for (int i = 0; i < personagens.getTamanho(); i++)
+        /*for (int i = 0; i < personagens.getTamanho(); i++)
         {
             graficos.desenhar(personagens.getEntidade(i)->getHitbox());
         }
         for (int i = 0; i < estaticas.getTamanho(); i++)
         {
             graficos.desenhar(estaticas.getEntidade(i)->getHitbox());
+        }*/
+        
+        for (int i = 0; i < personagens.getTamanho(); i++)
+        {
+           sf::RectangleShape auxi = personagens.getEntidade(i)->getAnimacao()->getCorpo();
+           graficos.desenhar(&auxi);
+        }
+        for (int i = 0; i < estaticas.getTamanho(); i++)
+        {
+           sf::RectangleShape aux = estaticas.getEntidade(i)->getAnimacao()->getCorpo();
+           graficos.desenhar(&aux);
         }
         window->display();//fazer loop p lista tbm
     }
