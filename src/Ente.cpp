@@ -13,8 +13,9 @@ Ente::Ente(coordenadas::vetorfloat pos) : RectangleShape(),
 
 }
 
-Ente::Ente() : RectangleShape() {
+Ente::Ente() : {
     //this->id = ID_Ent::empty;
+    RectangleShape = new Animation::Animacao();
 }
 
 Ente::~Ente() {
