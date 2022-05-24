@@ -5,7 +5,7 @@
 class Ente
 {
 protected:
-    Animation::Animacao RectangleShape;
+    Animation::Animacao* RectangleShape;
     //ID_Ent::ID id;
     coordenadas::vetorfloat posicao;
 
@@ -18,7 +18,7 @@ public:
     coordenadas::vetorfloat getPos() const;
     void MoveCorpo(coordenadas::vetorfloat vec);
 
-    Animation::Animacao* getAnimacao() { return &RectangleShape; }
+    Animation::Animacao* getAnimacao() { return RectangleShape; }
     coordenadas::vetorfloat getTamanho();
     //ID_Ent::ID getID();
 
