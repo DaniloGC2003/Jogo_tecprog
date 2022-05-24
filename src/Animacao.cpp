@@ -15,20 +15,25 @@ namespace Animation
     Animacao::~Animacao() {
     }
 
-    /*void Animacao::inicializaTextura(const char* caminho, coordenadas::vetoru imagemCount) {
+    void Animacao::inicializaTextura(const char* caminho, coordenadas::vetorfloat pos) {
+        //this->imagemCount = imagemCount;
+        //textura = pGraf->carregartextura(caminho);
+        
+        if (caminho) {
 
-        this->imagemCount = imagemCount;
-        textura = pGraf->carregarTexture(caminho);
-
-        uvRect.width = textura->getSize().x / float(imageCount.x);
-        uvRect.height = textura->getSize().y / float(imageCount.y);
-
-        corpo.setSize(coordenadas::vetorfloat(uvRect.width, uvRect.height));
-        corpo.setOrigin(coordenadas::vetorfloat(uvRect.width, uvRect.height) / 2.0f);
+            textura = new sf::Texture;
+            textura->loadFromFile(caminho);
+        }
+        //uvRect.width = textura->getSize().x / float(imagemCount.x);
+        //uvRect.height = textura->getSize().y / float(imagemCount.y);
+        //corpo.setSize(sf::Vector2f(uvRect.width, uvRect.height));
+        //corpo.setOrigin(sf::Vector2f(uvRect.width, uvRect.height) / 2.0f);
+        corpo.setOrigin(pos.x, pos.y);
         corpo.setTexture(textura);
+        corpo.setSize(sf::Vector2f(150.0f, 150.0f));
     }
     
-
+    /*
     void Animacao::Update(int row, float deltatime, bool faceRight, coordenadas::vetorfloat pos) {
 
         imagemAtual.x = 0;
