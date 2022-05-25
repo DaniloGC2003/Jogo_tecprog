@@ -8,29 +8,33 @@
 namespace Animation
 {
 
-class Animacao {
-private:
-    Gerenciador_grafico* pGraf;
-    coordenadas::vetoru imagemCount;
-    sf::Texture* textura;
-    coordenadas::vetoru imagemAtual;
-    sf::RectangleShape corpo;
-    sf::IntRect uvRect;
-    float TempoTotal;
-    static const float switchTime; // tempo para mudar o frame da imagem
+    class Animacao {
+    private:
 
-public:
-    Animacao();
-    ~Animacao();
+        Gerenciador_grafico* pGraf;
+        coordenadas::vetoru imagemCount;
+        sf::Texture* textura;
+        coordenadas::vetoru imagemAtual;
+        sf::RectangleShape corpo;
+        sf::IntRect uvRect;
+        float TempoTotal;
+        static const float switchTime; // tempo para mudar o frame da imagem
 
-    void inicializaTextura(const char* caminho, coordenadas::vetoru imagemCount);
-    void setimagemCount(const sf::Vector2u imagemCount);
-    void render();
-    void Update(int row, float deltatime, bool faceRight, coordenadas::vetorfloat position);
-    void setGerenciadorGrafico (Gerenciador_grafico* pGrafM) { pGraf = pGrafM; }
-    void setPosicao(coordenadas::vetorfloat v) { corpo.setPosition(v.getX(), v.getY()); }
-    sf::RectangleShape getCorpo() { return corpo; }
+    public:
+        Animacao();
+        ~Animacao();
 
-};
+        void inicializaTextura(const char* caminho,coordenadas::vetorfloat pos);
+        //void setimagemCount(const sf::Vector2u imagemCount);
+
+        
+        sf::RectangleShape getCorpo() { return corpo; }
+
+        void desenhar();
+        void setPosicao(coordenadas::vetorfloat v) { corpo.setPosition(v.getX(), v.getY()); }
+        
+        //void Update(int row, float deltatime, bool faceRight, coordenadas::vetorfloat position);
+       
+    };
 
 }
