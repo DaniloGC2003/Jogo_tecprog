@@ -15,7 +15,7 @@ Ente::Ente(coordenadas::vetorfloat pos) : RectangleShape(),
 
 Ente::Ente() : {
     //this->id = ID_Ent::empty;
-    RectangleShape = new Animation::Animacao();
+    
 }
 
 Ente::~Ente() {
@@ -44,12 +44,16 @@ void Ente::MoveCorpo(coordenadas::vetorfloat v) {
 
 coordenadas::vetorfloat Ente::getTamanho()
 {
-    float coordx = RectangleShape.getCorpo()->getSize().x;
-    float coordy = RectangleShape.getCorpo()->getSize().y;
+    float coordx = 0;
+    float coordy = 0;
+    
+    coordx = RectangleShape.getCorpo().getSize().x;
+    coordy = RectangleShape.getCorpo().getSize().y;
+
     //printf("%f e %f\n", coordx, coordy);
     return coordenadas::vetorfloat(coordx, coordy);
 }
 
-void Ente::render() {
-    RectangleShape.render();
+void Ente::desenhar() {
+    RectangleShape.desenhar();
 }
