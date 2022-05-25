@@ -5,7 +5,7 @@
 class Ente
 {
 protected:
-    Animation::Animacao* RectangleShape;
+    Animation::Animacao RectangleShape;
     //ID_Ent::ID id;
     coordenadas::vetorfloat posicao;
 
@@ -24,7 +24,7 @@ public:
 
     //virtual void initialize() = 0;
     //virtual void update(float dt) = 0;
-    virtual void render();
+    virtual void desenhar();
     
 };
 
