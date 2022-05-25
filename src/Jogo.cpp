@@ -72,7 +72,7 @@ void Jogo::Executar()
             graficos.desenhar(estaticas.getEntidade(i)->getHitbox());
         }*/
         
-        for (int i = 0; i < personagens.getTamanho(); i++)
+        /*for (int i = 0; i < personagens.getTamanho(); i++)
         {
            sf::RectangleShape auxi = personagens.getEntidade(i)->getAnimacao()->getCorpo();
            graficos.desenhar(&auxi);
@@ -81,7 +81,10 @@ void Jogo::Executar()
         {
            sf::RectangleShape aux = estaticas.getEntidade(i)->getAnimacao()->getCorpo();
            graficos.desenhar(&aux);
-        }
+        }*/
+        
+        estaticas.getEntidade(0)->desenhar();
+            
         window->display();//fazer loop p lista tbm
     }
 }
