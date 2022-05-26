@@ -1,6 +1,6 @@
 #include "../headers/Gerenciador_colisoes.h"
 
-Gerenciador_colisoes::Gerenciador_colisoes() 
+Gerenciador_colisoes::Gerenciador_colisoes()
 {
 
 }
@@ -21,7 +21,7 @@ bool Gerenciador_colisoes::verifica_colisao(Entities::Entidade* ent1, Entities::
 
 coordenadas::vetorfloat Gerenciador_colisoes::getMeioTamanho(Entities::Entidade* ent)
 {
-	return ent->getTamanho()/2;
+	return ent->getTamanho() / 2;
 }
 
 coordenadas::vetorfloat Gerenciador_colisoes::getDistancia(Entities::Entidade* body1, Entities::Entidade* body2)

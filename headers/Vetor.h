@@ -23,7 +23,7 @@ namespace coordenadas
         void operator+= (Vetor<TL> v);
         void operator-= (Vetor<TL> v);
     };
-    
+
     typedef Vetor<float> vetorfloat;
     typedef Vetor<unsigned> vetoru;
 
@@ -77,7 +77,7 @@ namespace coordenadas
     template<typename TL>
     inline Vetor<TL> Vetor<TL>::operator/(double num)
     {
-        return Vetor<TL>(this->getX()/num, this->getY()/num);
+        return Vetor<TL>(this->getX() / num, this->getY() / num);
     }
     template<typename TL>
     inline void Vetor<TL>::operator=(Vetor<TL> v)

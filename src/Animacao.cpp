@@ -1,15 +1,19 @@
 #include "../headers/Animacao.h"
 namespace Animation
 {
-    const float Animacao::switchTime = 0.3;
+    //const float Animacao::switchTime = 0.3;
 
-    Animation::Animacao::Animacao() :
-        pGraf(nullptr),
-        imagemCount(coordenadas::vetoru(0, 0)),
-        textura(NULL),
-        imagemAtual(coordenadas::vetoru(0, 0)) {
-        corpo.setSize(sf::Vector2f(50.f, 50.f));
-        TempoTotal = 0.0f;
+    Animation::Animacao::Animacao(const char* caminho, Gerenciador_grafico* pGraf) :
+        pGraf(pGraf), corpo(),
+        textura(pGraf->carregaTextura(caminho))
+    {
+        corpo.setTexture(textura);
+        corpo.setSize(sf::Vector2f(textura->getSize().x, textura->getSize().y));
+        corpo.setOrigin(corpo.getSize().x / 2, corpo.getSize().y / 2);
+    }
+
+    Animacao::Animacao() : pGraf(nullptr), corpo(), textura(nullptr)
+    {
     }
 
     Animacao::~Animacao() {
@@ -27,7 +31,7 @@ namespace Animation
         corpo.setOrigin(coordenadas::vetorfloat(uvRect.width, uvRect.height) / 2.0f);
         corpo.setTexture(textura);
     }
-    
+
 
     void Animacao::Update(int row, float deltatime, bool faceRight, coordenadas::vetorfloat pos) {
 
@@ -67,6 +71,11 @@ namespace Animation
     void Animacao::render() {
         pGraf->desenhar(&corpo);
     }
-     
+
+    coordenadas::vetorfloat Animacao::getTam()
+    {
+        return coordenadas::vetorfloat(corpo.getSize().x, corpo.getSize().y);
+    }
+
 
 }

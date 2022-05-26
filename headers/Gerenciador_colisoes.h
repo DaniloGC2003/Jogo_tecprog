@@ -18,4 +18,3 @@ public:
 	bool verifica_colisao(Entities::Entidade* ent1, Entities::Entidade* ent2);
 	void colidir(ListaEntidades* characters, ListaEntidades* statics);
 };
-

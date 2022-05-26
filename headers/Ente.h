@@ -10,7 +10,7 @@ protected:
     coordenadas::vetorfloat posicao;
 
 public:
-    Ente(coordenadas::vetorfloat pos);
+    Ente(coordenadas::vetorfloat pos, Gerenciador_grafico* pGraf, const char* caminho);
     Ente();
     virtual ~Ente();
 
@@ -18,14 +18,14 @@ public:
     coordenadas::vetorfloat getPos() const;
     void MoveCorpo(coordenadas::vetorfloat vec);
 
-    Animation::Animacao* getAnimacao() { return RectangleShape; }
+    Animation::Animacao* getAnimacao() { return &RectangleShape; }
     coordenadas::vetorfloat getTamanho();
     //ID_Ent::ID getID();
 
     //virtual void initialize() = 0;
     //virtual void update(float dt) = 0;
-    virtual void desenhar();
-    
+    virtual void render();
+
 };
 
 

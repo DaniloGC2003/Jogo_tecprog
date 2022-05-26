@@ -8,7 +8,7 @@ private:
 public:
 	ListaEntidades();
 	~ListaEntidades();
-	
+
 	void pushEntidade(Entities::Entidade* Ent);
 	void deleteEntidade(Entities::Entidade* ent);
 	Entities::Entidade* getEntidade(int pos);
