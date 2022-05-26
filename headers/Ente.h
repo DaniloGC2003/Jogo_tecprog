@@ -18,13 +18,13 @@ public:
     coordenadas::vetorfloat getPos() const;
     void MoveCorpo(coordenadas::vetorfloat vec);
 
-    Animation::Animacao* getAnimacao() { return &RectangleShape; }
+    Animation::Animacao* getAnimacao() { return RectangleShape; }
     coordenadas::vetorfloat getTamanho();
     //ID_Ent::ID getID();
 
     //virtual void initialize() = 0;
     //virtual void update(float dt) = 0;
-    virtual void render();
+    virtual void desenhar();
     
 };
 

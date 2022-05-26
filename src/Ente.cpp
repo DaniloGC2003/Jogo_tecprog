@@ -13,8 +13,9 @@ Ente::Ente(coordenadas::vetorfloat pos, Gerenciador_grafico* pGraf, const char* 
     mudarPos(pos);
 }
 
-Ente::Ente() : RectangleShape() {
+Ente::Ente() : {
     //this->id = ID_Ent::empty;
+    
 }
 
 Ente::~Ente() {
@@ -46,6 +47,6 @@ coordenadas::vetorfloat Ente::getTamanho()
     return RectangleShape.getTam();
 }
 
-void Ente::render() {
-    RectangleShape.render();
+void Ente::desenhar() {
+    RectangleShape.desenhar();
 }
