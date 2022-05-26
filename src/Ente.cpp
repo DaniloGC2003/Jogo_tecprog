@@ -7,10 +7,10 @@
     id(id),
     posicao(pos) { }*/
 
-Ente::Ente(coordenadas::vetorfloat pos, Gerenciador_grafico* pGraf, const char* caminho) :
-    RectangleShape(caminho, pGraf)
+Ente::Ente(coordenadas::vetorfloat pos) : RectangleShape(),
+ posicao(pos)
 {
-    mudarPos(pos);
+
 }
 
 Ente::Ente() : {
@@ -44,7 +44,10 @@ void Ente::MoveCorpo(coordenadas::vetorfloat v) {
 
 coordenadas::vetorfloat Ente::getTamanho()
 {
-    return RectangleShape.getTam();
+    float coordx = RectangleShape.getCorpo()->getSize().x;
+    float coordy = RectangleShape.getCorpo()->getSize().y;
+    //printf("%f e %f\n", coordx, coordy);
+    return coordenadas::vetorfloat(coordx, coordy);
 }
 
 void Ente::desenhar() {

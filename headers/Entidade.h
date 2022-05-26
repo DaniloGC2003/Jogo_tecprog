@@ -8,10 +8,10 @@ namespace Entities {
 
     class Entidade : public Ente {
     protected:
-        coordenadas::vetorfloat velocidade;//sera colocado na classe personagem
+        coordenadas::vetorfloat velocidade;
     public:
         //Entidade(ID_Ent::ID id, coordenadas::vetorfloat pos, sf::RectangleShape hit);
-        Entidade(coordenadas::vetorfloat pos, Gerenciador_grafico* pGraf, const char* pathImagem);
+        Entidade(coordenadas::vetorfloat pos);
         Entidade();
         //virtual ~Entidade();
         ~Entidade();

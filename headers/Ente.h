@@ -10,7 +10,7 @@ protected:
     coordenadas::vetorfloat posicao;
 
 public:
-    Ente(coordenadas::vetorfloat pos, Gerenciador_grafico* pGraf, const char* caminho);
+    Ente(coordenadas::vetorfloat pos);
     Ente();
     virtual ~Ente();
 

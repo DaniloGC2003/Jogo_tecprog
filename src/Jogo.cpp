@@ -1,15 +1,14 @@
 #include "../headers/Jogo.h"
 
-Jogo::Jogo() : window(graficos.getJanela()), graficos(), colisoes(),
-jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "Woodcutter.png"),
-plataforma(coordenadas::vetorfloat(300.f, 300.f), graficos.getInstance(), "Woodcutter.png")
+Jogo::Jogo() : window(graficos.getJanela()), graficos(), colisoes(), jogador(), plataforma()
 {
     jogador.setVelocidade(coordenadas::vetorfloat(0.1f,0.1f)); 
-    //jogador.getAnimacao()->getCorpo()->setFillColor(sf::Color::Green);
+    jogador.getHitbox()->setOrigin(25.0f, 25.0f);
     personagens.pushEntidade(&jogador);
     
     plataforma.getHitbox()->setFillColor(sf::Color::Green);
-    //plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
+    plataforma.getHitbox()->setOrigin(25.0f, 25.0f);
+    plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
     estaticas.pushEntidade(&plataforma);
     plataforma.getAnimacao()->inicializaTextura("Ball.png",coordenadas::vetorfloat(-50.f,-250.f));
     
