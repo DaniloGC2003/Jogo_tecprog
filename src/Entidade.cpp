@@ -8,14 +8,14 @@ namespace Entities
         velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     }*/
 
-    Entidade::Entidade(coordenadas::vetorfloat pos) : Ente(pos)
+    Entidade::Entidade(coordenadas::vetorfloat pos, Gerenciador_grafico* pGraf, const char* pathImagem) : Ente(pos, pGraf, pathImagem)
     {
         velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     }
 
-    Entidade::Entidade() {
+    Entidade::Entidade() : Ente()
+    {
         velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
-
     }
 
     Entidade::~Entidade() {
