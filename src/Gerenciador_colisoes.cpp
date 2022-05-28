@@ -41,6 +41,7 @@ namespace Gerenciadores
 
 	void Gerenciador_colisoes::colidir(Lists::ListaEntidades* characters, Lists::ListaEntidades* statics)
 	{
+		static_cast<Entities::Jogador*>(characters->getEntidade(0))->setPodePular(false);
 		int i, j;
 		for (i = 0; i < characters->getTamanho(); i++)
 		{
@@ -60,13 +61,22 @@ namespace Gerenciadores
 					else
 					{
 						if (characters->getEntidade(i)->getPosicao().getY() < statics->getEntidade(j)->getPosicao().getY())
+						{
 							(characters->getEntidade(i)->Move(coordenadas::vetorfloat(0.0f, intersecao.getY())));
+							if (i == 0)//se estiver analisando o jogador
+							{
+								static_cast<Entities::Jogador*>(characters->getEntidade(i))->setPodePular(true);
+							}
+						}
 						else
+						{
 							(characters->getEntidade(i)->Move(coordenadas::vetorfloat(0.0f, -intersecao.getY())));
+						}
 					}
 				}
 			}
 		}
+		//std::cout << static_cast<Entities::Jogador*>(characters->getEntidade(0))->getPodePular() << "\n";
 	}
 
 }

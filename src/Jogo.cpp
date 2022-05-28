@@ -5,6 +5,7 @@ jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "preview.
 plataforma(coordenadas::vetorfloat(300.f, 300.f), graficos.getInstance(), "preview.png"),
 background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "tile15.png")
 {
+
     background.getAnimacao()->mudaEscala(25.f, 25.f);
 
     personagens.pushEntidade(static_cast<Entities::Entidade*>(& jogador));
@@ -35,6 +36,7 @@ Lists::ListaEntidades* Jogo::getEstaticas()
 
 void Jogo::Executar()
 {
+    float tempo = 0.f;
     while (window->isOpen())
     {
         sf::Event event;
@@ -43,6 +45,8 @@ void Jogo::Executar()
             if (event.type == sf::Event::Closed)
                 window->close();
         }
+
+        tempo = relogio.getElapsedTime().asMilliseconds() - tempo;
 
         window->clear();
 

@@ -21,6 +21,7 @@ private:
 	Entities::Jogador jogador;
 	Entities::Entidade plataforma;
 	Entities::Ente background;
+
 public:
 	Jogo();
 	~Jogo();

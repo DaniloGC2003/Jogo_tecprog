@@ -4,6 +4,7 @@
 #include "ListaEntidades.h"
 #include "Vetor.h"
 #include "Entidade.h"
+#include "Jogador.h"
 namespace Gerenciadores
 {
 	class Gerenciador_colisoes
