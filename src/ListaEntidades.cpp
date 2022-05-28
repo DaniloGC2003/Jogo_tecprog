@@ -1,30 +1,33 @@
 #include "../headers/ListaEntidades.h"
-
-ListaEntidades::ListaEntidades() : Entidades()
+namespace Lists
 {
+	ListaEntidades::ListaEntidades() : Entidades()
+	{
 
-}
+	}
 
-ListaEntidades::~ListaEntidades()
-{
-}
+	ListaEntidades::~ListaEntidades()
+	{
+	}
 
-void ListaEntidades::pushEntidade(Entities::Entidade* Ent)
-{
-	Entidades.push(Ent);
-}
+	void ListaEntidades::pushEntidade(Entities::Entidade* Ent)
+	{
+		Entidades.push(Ent);
+	}
 
-void ListaEntidades::deleteEntidade(Entities::Entidade* ent)
-{
-	Entidades.pop(ent);
-}
+	void ListaEntidades::deleteEntidade(Entities::Entidade* ent)
+	{
+		Entidades.pop(ent);
+	}
 
-Entities::Entidade* ListaEntidades::getEntidade(int pos)
-{
-	return Entidades.getpInfo(pos);
-}
+	Entities::Entidade* ListaEntidades::getEntidade(int pos)
+	{
+		return Entidades.getpInfo(pos);
+	}
 
-int ListaEntidades::getTamanho()
-{
-	return Entidades.getlen();
+	int ListaEntidades::getTamanho()
+	{
+		return Entidades.getlen();
+	}
+
 }

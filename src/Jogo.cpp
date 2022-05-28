@@ -1,16 +1,23 @@
 #include "../headers/Jogo.h"
 
 Jogo::Jogo() : window(graficos.getJanela()), graficos(), colisoes(),
-jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "Woodcutter.png"),
-plataforma(coordenadas::vetorfloat(300.f, 300.f), graficos.getInstance(), "Woodcutter.png")
+jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "preview.png", coordenadas::vetorfloat(0.1f, 0.1f)),
+plataforma(coordenadas::vetorfloat(300.f, 300.f), graficos.getInstance(), "preview.png"),
+background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "tile15.png")
 {
-    jogador.setVelocidade(coordenadas::vetorfloat(0.1f, 0.1f));
-    //jogador.getAnimacao()->getCorpo()->setFillColor(sf::Color::Green);
-    personagens.pushEntidade(&jogador);
+    std::cout << background.getAnimacao()->getTam().getX() << " " << background.getAnimacao()->getTam().getY() << std::endl;
+    background.getAnimacao()->mudaEscala(25.f, 25.f);
+    std::cout << background.getAnimacao()->getTam().getX() << " " << background.getAnimacao()->getTam().getY() << std::endl;
 
-    plataforma.getHitbox()->setFillColor(sf::Color::Green);
+
+    personagens.pushEntidade(static_cast<Entities::Entidade*>(& jogador));
+
     //plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
+    plataforma.getAnimacao()->mudaEscala(10.0f, 1.0f);
     estaticas.pushEntidade(&plataforma);
+
+    //Entities::Personagem* pPers = new Entities::Personagem(coordenadas::vetorfloat(350.f, 350.f), graficos.getInstance(), "Woodcutter.png", coordenadas::vetorfloat(0.1f, 0.1f));
+    //personagens.pushEntidade(static_cast<Entities::Entidade*>(pPers));
     Executar();
 
 }
@@ -19,12 +26,12 @@ Jogo::~Jogo()
 {
 }
 
-ListaEntidades* Jogo::getPersonagens()
+Lists::ListaEntidades* Jogo::getPersonagens()
 {
     return &personagens;
 }
 
-ListaEntidades* Jogo::getEstaticas()
+Lists::ListaEntidades* Jogo::getEstaticas()
 {
     return &estaticas;
 }
@@ -41,33 +48,22 @@ void Jogo::Executar()
         }
 
         window->clear();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        {
-            jogador.Move(coordenadas::vetorfloat(jogador.getVelocidade().getX(), 0.f));
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        {
-            jogador.Move(coordenadas::vetorfloat(-jogador.getVelocidade().getX(), 0.f));
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        {
-            jogador.Move(coordenadas::vetorfloat(0.f, jogador.getVelocidade().getY()));
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        {
-            jogador.Move(coordenadas::vetorfloat(0.f, -jogador.getVelocidade().getY()));
-        }
+
+        background.render();
 
         colisoes.colidir(&personagens, &estaticas);
 
         for (int i = 0; i < personagens.getTamanho(); i++)
         {
-            graficos.desenhar(personagens.getEntidade(i)->getHitbox());
+            personagens.getEntidade(i)->executar();
         }
+
         for (int i = 0; i < estaticas.getTamanho(); i++)
         {
-            graficos.desenhar(estaticas.getEntidade(i)->getHitbox());
+            
+            estaticas.getEntidade(i)->executar();
         }
+
         window->display();//fazer loop p lista tbm
     }
 }

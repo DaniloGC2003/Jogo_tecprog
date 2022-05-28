@@ -1,30 +1,34 @@
 #pragma once
-template <class TE> class Elemento
+namespace Lists
 {
-private:
-	Elemento<TE>* pProx;
-	TE* pinfo;
+	template <class TE> class Elemento
+	{
+	private:
+		Elemento<TE>* pProx;
+		TE* pinfo;
 
-public:
-	Elemento();
-	~Elemento();
+	public:
+		Elemento();
+		~Elemento();
 
-	void setpProx(Elemento<TE>* pProx) { this->pProx = pProx; }
-	void setpInfo(TE* pinfo) { this->pinfo = pinfo; }
+		void setpProx(Elemento<TE>* pProx) { this->pProx = pProx; }
+		void setpInfo(TE* pinfo) { this->pinfo = pinfo; }
 
-	Elemento<TE>* getpProx() { return pProx; }
-	TE* getpInfo() { return pinfo; }
-};
+		Elemento<TE>* getpProx() { return pProx; }
+		TE* getpInfo() { return pinfo; }
+	};
 
-template<class TE>
-inline Elemento<TE>::Elemento()
-{
-	pProx = nullptr;
-	pinfo = nullptr;
+	template<class TE>
+	inline Elemento<TE>::Elemento()
+	{
+		pProx = nullptr;
+		pinfo = nullptr;
+	}
+
+	template<class TE>
+	inline Elemento<TE>::~Elemento()
+	{
+	}
+
+
 }
-
-template<class TE>
-inline Elemento<TE>::~Elemento()
-{
-}
-

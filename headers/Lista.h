@@ -1,85 +1,88 @@
 #pragma once
 #include "Elemento.h"
-
-template <class TL> class Lista
+namespace Lists
 {
-private:
-	Elemento<TL>* pPrimeiro;
-	Elemento<TL>* pUltimo;
-	int len;
-public:
+	template <class TL> class Lista
+	{
+	private:
+		Elemento<TL>* pPrimeiro;
+		Elemento<TL>* pUltimo;
+		int len;
+	public:
 
-	Lista();
-	~Lista();
+		Lista();
+		~Lista();
 
-	int getlen() { return len; }// len = tamanho
+		int getlen() { return len; }// len = tamanho
 
-	TL* getpInfo(int posicao) {
+		TL* getpInfo(int posicao) {
 
-		Elemento<TL>* temp = pPrimeiro;
+			Elemento<TL>* temp = pPrimeiro;
 
-		if (posicao == 0)
-			return temp->getpInfo();
-		else {
-			for (int i = 0; i < posicao; i++) {
-				if (temp) {
-					temp = temp->getpProx();
+			if (posicao == 0)
+				return temp->getpInfo();
+			else {
+				for (int i = 0; i < posicao; i++) {
+					if (temp) {
+						temp = temp->getpProx();
+					}
 				}
+				return temp->getpInfo();
 			}
-			return temp->getpInfo();
 		}
+
+		void push(TL* info) {
+
+			if (pPrimeiro == nullptr) {
+				pPrimeiro = new Elemento<TL>;
+				pPrimeiro->setpInfo(info);
+				pUltimo = pPrimeiro;
+			}
+			else {
+				Elemento<TL>* temp = new Elemento<TL>;
+				temp->setpInfo(info);
+				pUltimo->setpProx(temp);
+				pUltimo = temp;
+			}
+			len++;
+		}
+
+		void pop(TL* info) {
+
+			Elemento<TL>* temp = pPrimeiro;
+			Elemento<TL>* tempAnt = nullptr;
+
+			while (temp->getpInfo() != info) {
+
+				tempAnt = temp;
+				temp = temp->getpProx();
+			}
+			if (temp == pPrimeiro) {// Eliminando o primeiro elemento da lista
+				pPrimeiro = temp->getpProx();
+			}
+			else if (temp == pUltimo) {//Eliminando o ultimo elemento da lista
+				tempAnt->setpProx(nullptr);
+				pUltimo = tempAnt;
+			}
+			else { //Eliminando elemento do meio da lista
+				temp->setpProx(temp->getpProx());
+			}
+			delete temp;
+			len--;
+		}
+	};
+
+	template<class TL>
+	inline Lista<TL>::Lista()
+	{
+		pPrimeiro = nullptr;
+		pUltimo = nullptr;
+		len = 0;
 	}
 
-	void push(TL* info) {
-
-		if (pPrimeiro == nullptr) {
-			pPrimeiro = new Elemento<TL>;
-			pPrimeiro->setpInfo(info);
-			pUltimo = pPrimeiro;
-		}
-		else {
-			Elemento<TL>* temp = new Elemento<TL>;
-			temp->setpInfo(info);
-			pUltimo->setpProx(temp);
-			pUltimo = temp;
-		}
-		len++;
+	template<class TL>
+	inline Lista<TL>::~Lista()
+	{
 	}
 
-	void pop(TL* info) {
-
-		Elemento<TL>* temp = pPrimeiro;
-		Elemento<TL>* tempAnt = nullptr;
-
-		while (temp->getpInfo() != info) {
-
-			tempAnt = temp;
-			temp = temp->getpProx();
-		}
-		if (temp == pPrimeiro) {// Eliminando o primeiro elemento da lista
-			pPrimeiro = temp->getpProx();
-		}
-		else if (temp == pUltimo) {//Eliminando o ultimo elemento da lista
-			tempAnt->setpProx(nullptr);
-			pUltimo = tempAnt;
-		}
-		else { //Eliminando elemento do meio da lista
-			temp->setpProx(temp->getpProx());
-		}
-		delete temp;
-		len--;
-	}
-};
-
-template<class TL>
-inline Lista<TL>::Lista()
-{
-	pPrimeiro = nullptr;
-	pUltimo = nullptr;
-	len = 0;
-}
-
-template<class TL>
-inline Lista<TL>::~Lista()
-{
 }

@@ -8,14 +8,12 @@ namespace Entities
         velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     }*/
 
-    Entidade::Entidade(coordenadas::vetorfloat pos, Gerenciador_grafico* pGraf, const char* pathImagem) : Ente(pos, pGraf, pathImagem)
+    Entidade::Entidade(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem) : Ente(pos, pGraf, pathImagem)
     {
-        velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     }
 
     Entidade::Entidade() : Ente()
     {
-        velocidade = coordenadas::vetorfloat(0.0f, 0.0f);
     }
 
     Entidade::~Entidade() {
@@ -29,16 +27,21 @@ namespace Entities
         return getPos();
     }
 
-    void Entidade::setVelocidade(coordenadas::vetorfloat vel) {
+    /*void Entidade::setVelocidade(coordenadas::vetorfloat vel) {
         velocidade = vel;
     }
 
     coordenadas::vetorfloat Entidade::getVelocidade() const {
         return velocidade;
-    }
+    }*/
 
-    sf::RectangleShape* Entidade::getHitbox() {
+    /*sf::RectangleShape* Entidade::getHitbox() {
         return getAnimacao()->getCorpo();
+    }*/
+
+    void Entidade::executar()
+    {
+        getAnimacao()->render();
     }
 
     /*ID_Ent::ID Entidade::getId() {

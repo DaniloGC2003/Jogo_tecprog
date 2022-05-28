@@ -3,7 +3,7 @@ namespace Animation
 {
     //const float Animacao::switchTime = 0.3;
 
-    Animation::Animacao::Animacao(const char* caminho, Gerenciador_grafico* pGraf) :
+    Animation::Animacao::Animacao(const char* caminho, Gerenciadores::Gerenciador_grafico* pGraf) :
         pGraf(pGraf), corpo(),
         textura(pGraf->carregaTextura(caminho))
     {
@@ -16,7 +16,9 @@ namespace Animation
     {
     }
 
-    Animacao::~Animacao() {
+    Animacao::~Animacao() 
+    {
+        pGraf = nullptr;
     }
 
     /*void Animacao::inicializaTextura(const char* caminho, coordenadas::vetoru imagemCount) {
@@ -77,5 +79,13 @@ namespace Animation
         return coordenadas::vetorfloat(corpo.getSize().x, corpo.getSize().y);
     }
 
+    void Animacao::mudaEscala(float mult_x, float mult_y)
+    {
+        //std::cout << getTam().getX() << " " << getTam().getY() << std::endl;
 
+        corpo.setSize(sf::Vector2f(getTam().getX() * mult_x, getTam().getY() * mult_y));
+        //std::cout << getTam().getX() << " " << getTam().getY();
+        corpo.setOrigin(corpo.getSize().x / 2, corpo.getSize().y / 2);
+        //fazer a imagem se repetir em vez de se esticar
+    }
 }

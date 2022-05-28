@@ -5,22 +5,26 @@
 #include "ListaEntidades.h"
 #include "Entidade.h"
 #include "Gerenciador_colisoes.h"
+#include "Personagem.h"
+#include "Jogador.h"
+#include "Ente.h"
 class Jogo
 {
 private:
 	sf::Clock relogio;
-	Gerenciador_grafico graficos;
-	Gerenciador_colisoes colisoes;
+	Gerenciadores::Gerenciador_grafico graficos;
+	Gerenciadores::Gerenciador_colisoes colisoes;
 	sf::RenderWindow* window;
-	ListaEntidades personagens;
-	ListaEntidades estaticas;
+	Lists::ListaEntidades personagens;
+	Lists::ListaEntidades estaticas;
 
-	Entities::Entidade jogador;
+	Entities::Jogador jogador;
 	Entities::Entidade plataforma;
+	Entities::Ente background;
 public:
 	Jogo();
 	~Jogo();
-	ListaEntidades* getPersonagens();
-	ListaEntidades* getEstaticas();
+	Lists::ListaEntidades* getPersonagens();
+	Lists::ListaEntidades* getEstaticas();
 	void Executar();
 };
