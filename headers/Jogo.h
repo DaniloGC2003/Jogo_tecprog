@@ -8,6 +8,8 @@
 #include "Personagem.h"
 #include "Jogador.h"
 #include "Ente.h"
+#include "Obstaculo.h"
+#include "Lago.h"
 class Jogo
 {
 private:
@@ -19,7 +21,7 @@ private:
 	Lists::ListaEntidades estaticas;
 
 	Entities::Jogador jogador;
-	Entities::Entidade plataforma;
+	Entities::Lago lago;
 	Entities::Ente background;
 
 public:

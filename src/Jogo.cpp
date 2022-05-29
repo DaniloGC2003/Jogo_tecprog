@@ -1,9 +1,9 @@
 #include "../headers/Jogo.h"
 
 Jogo::Jogo() : window(graficos.getJanela()), graficos(), colisoes(),
-jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "preview.png", coordenadas::vetorfloat(0.1f, 0.1f)),
-plataforma(coordenadas::vetorfloat(300.f, 300.f), graficos.getInstance(), "preview.png"),
-background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "tile15.png")
+jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/TheUndying.png", coordenadas::vetorfloat(0.1f, 0.1f)),
+lago(coordenadas::vetorfloat(300.f, 300.f), graficos.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/Water.png"),
+background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/Ball.png")
 {
 
     background.getAnimacao()->mudaEscala(25.f, 25.f);
@@ -11,12 +11,13 @@ background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "tile15.pn
     personagens.pushEntidade(static_cast<Entities::Entidade*>(& jogador));
 
     //plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
-    plataforma.getAnimacao()->mudaEscala(10.0f, 1.0f);
-    estaticas.pushEntidade(&plataforma);
+    lago.getAnimacao()->mudaEscala(10.0f, 1.0f);
+    estaticas.pushEntidade(&lago);
 
     //Entities::Personagem* pPers = new Entities::Personagem(coordenadas::vetorfloat(350.f, 350.f), graficos.getInstance(), "Woodcutter.png", coordenadas::vetorfloat(0.1f, 0.1f));
     //personagens.pushEntidade(static_cast<Entities::Entidade*>(pPers));
     Executar();
+    
 
 }
 
