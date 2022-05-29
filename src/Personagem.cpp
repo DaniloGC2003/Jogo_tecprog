@@ -5,7 +5,7 @@ namespace Entities
 		Entidade(pos, pGraf, pathImagem), vida(100)
 	{
 	}
-	Personagem::Personagem() : Entidade(), vida(0), velocidade(0.f, 0.f)
+	Personagem::Personagem() : Entidade(), vida(0)
 	{
 	}
 	Personagem::~Personagem()

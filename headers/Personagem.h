@@ -8,7 +8,7 @@ namespace Entities
 	{
 	protected:
 		int vida; //health points
-		coordenadas::vetorfloat velocidade;
+		//coordenadas::vetorfloat velocidade;
 	public:
 		Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem);
 		Personagem();
