@@ -10,13 +10,14 @@
 #include "Ente.h"
 #include "Obstaculo.h"
 #include "Lago.h"
+#include "Inimigo.h"
 class Jogo
 {
 private:
 	sf::Clock relogio;
 	Gerenciadores::Gerenciador_grafico graficos;
 	Gerenciadores::Gerenciador_colisoes colisoes;
-	sf::RenderWindow* window;
+	sf::View camera;
 	Lists::ListaEntidades personagens;
 	Lists::ListaEntidades estaticas;
 

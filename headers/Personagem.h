@@ -16,6 +16,9 @@ namespace Entities
 		coordenadas::vetorfloat getVelocidade() const { return velocidade; }
 		void setVelocidade(coordenadas::vetorfloat vel) { velocidade = vel; }
 
+		int getVida() { return vida; }
+		void setVida(int hp) { vida = hp; }
+
 		virtual void executar();
 	};
 }
