@@ -1,7 +1,7 @@
 #pragma once
 #include "Personagem.h"
-#define SPEED_X 0.2
-#define PULO 80
+#define SPEED_X 0.25
+#define PULO 150
 namespace Entities
 {
 	class Jogador :
@@ -13,7 +13,7 @@ namespace Entities
 		coordenadas::vetorfloat vetVel;//vetor velocidade. jogador vai se mover no sentido desse vetor
 		float maxAltura;
 	public:
-		Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, coordenadas::vetorfloat velocidade);
+		Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem);
 		Jogador();
 		~Jogador();
 

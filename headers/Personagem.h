@@ -1,6 +1,7 @@
 #pragma once
 #include "Entidade.h"
 #include <SFML/Graphics.hpp>
+#define GRAVITY 0.2
 namespace Entities
 {
 	class Personagem : public Entidade
@@ -9,12 +10,12 @@ namespace Entities
 		int vida; //health points
 		coordenadas::vetorfloat velocidade;
 	public:
-		Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, coordenadas::vetorfloat velocidade);
+		Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem);
 		Personagem();
 		~Personagem();
 
-		coordenadas::vetorfloat getVelocidade() const { return velocidade; }
-		void setVelocidade(coordenadas::vetorfloat vel) { velocidade = vel; }
+		//coordenadas::vetorfloat getVelocidade() const { return velocidade; }
+		//void setVelocidade(coordenadas::vetorfloat vel) { velocidade = vel; }
 
 		int getVida() { return vida; }
 		void setVida(int hp) { vida = hp; }

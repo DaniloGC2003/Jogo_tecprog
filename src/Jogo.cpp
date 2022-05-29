@@ -1,7 +1,7 @@
 #include "../headers/Jogo.h"
 
 Jogo::Jogo() : camera(sf::Vector2f(0.f, 0.f), sf::Vector2f(600.f, 600.f)), graficos(), colisoes(),
-jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "Woodcutter.png", coordenadas::vetorfloat(0.1f, 0.1f)),
+jogador(coordenadas::vetorfloat(101.f, 110.f), graficos.getInstance(), "Woodcutter.png"),
 lago(coordenadas::vetorfloat(300.f, 300.f), graficos.getInstance(), "drakejosh.jpg"),
 background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "tile15.png")
 {
@@ -14,7 +14,7 @@ background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "tile15.pn
     lago.getAnimacao()->mudaEscala(10.0f, 1.0f);
     estaticas.pushEntidade(&lago);
 
-    Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Inimigo(coordenadas::vetorfloat(201.f, 110.f), graficos.getInstance(), "alh.png", coordenadas::vetorfloat(0.1f, 0.1f), &jogador, &colisoes));
+    Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Inimigo(coordenadas::vetorfloat(201.f, 110.f), graficos.getInstance(), "preview.png", &jogador, &colisoes));
     personagens.pushEntidade(pEnt);
 
     //Entities::Personagem* pPers = new Entities::Personagem(coordenadas::vetorfloat(350.f, 350.f), graficos.getInstance(), "Woodcutter.png", coordenadas::vetorfloat(0.1f, 0.1f));
@@ -73,7 +73,7 @@ void Jogo::Executar()
         graficos.getJanela()->setView(camera);
         camera.setCenter(sf::Vector2f(jogador.getPosicao().getX(), jogador.getPosicao().getY()));
 
-        graficos.getJanela()->display();//fazer loop p lista tbm
+        graficos.getJanela()->display();
     }
 }
 

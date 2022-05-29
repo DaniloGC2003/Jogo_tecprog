@@ -2,14 +2,14 @@
 
 namespace Entities
 {
-	Entities::Jogador::Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, coordenadas::vetorfloat velocidade)
-		: Personagem(pos, pGraf, pathImagem, velocidade), podePular(false), pulando(false), 
-         vetVel(0.f,0.2f), maxAltura(0.f)
+	Entities::Jogador::Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem)
+		: Personagem(pos, pGraf, pathImagem), podePular(false), pulando(false), 
+         vetVel(0.f,(float)GRAVITY), maxAltura(0.f)
 	{
 	}
 
 	Entities::Jogador::Jogador() : Personagem(), podePular(false), pulando(false), 
-         vetVel(0.f, 0.2f), maxAltura(0.f)
+         vetVel(0.f, (float)GRAVITY), maxAltura(0.f)
 	{
 	}
 
@@ -32,7 +32,7 @@ namespace Entities
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular)
         {
-            maxAltura = getPosicao().getY()-(float)PULO;
+            maxAltura = (float)PULO;
             vetVel += coordenadas::vetorfloat(0.f, -0.4f);
             maxAltura -= 0.2f;
             podePular = false;
@@ -44,7 +44,7 @@ namespace Entities
             if (maxAltura <= 0)
             {
                 pulando = false;
-                vetVel = coordenadas::vetorfloat(vetVel.getX(), 0.2f);//gravidade
+                vetVel = coordenadas::vetorfloat(vetVel.getX(), (float)GRAVITY);//gravidade
             }
         }
         //std::cout << (int)podePular << std::endl;
