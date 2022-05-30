@@ -56,38 +56,38 @@ namespace Gerenciadores
 		return coordenadas::vetorfloat(delta - meiasDistancias);
 	}
 
-	void Gerenciador_colisoes::colidir(Lists::ListaEntidades* characters, Lists::ListaEntidades* statics)
+	void Gerenciador_colisoes::colidir()//(Lists::ListaEntidades* characters, Lists::ListaEntidades* statics)
 	{
-		static_cast<Entities::Jogador*>(characters->getEntidade(0))->setPodePular(false);
+		static_cast<Entities::Jogador*>(pPersonagens->getEntidade(0))->setPodePular(false);
 		int i, j;
-		for (i = 0; i < characters->getTamanho(); i++)
+		for (i = 0; i < pPersonagens->getTamanho(); i++)
 		{
-			for (j = 0; j < statics->getTamanho(); j++)
+			for (j = 0; j < pEstaticos->getTamanho(); j++)
 			{
-				if (verifica_colisao(characters->getEntidade(i), statics->getEntidade(j)))
+				if (verifica_colisao(pPersonagens->getEntidade(i), pEstaticos->getEntidade(j)))
 				{
-					coordenadas::vetorfloat intersecao = getIntersecao(characters->getEntidade(i), statics->getEntidade(j));
+					coordenadas::vetorfloat intersecao = getIntersecao(pPersonagens->getEntidade(i), pEstaticos->getEntidade(j));
 
 					if (abs(intersecao.getX()) < abs(intersecao.getY()))
 					{
-						if (characters->getEntidade(i)->getPosicao().getX() < statics->getEntidade(j)->getPosicao().getX())
-							(characters->getEntidade(i)->Move(coordenadas::vetorfloat(intersecao.getX(), 0.0f)));
+						if (pPersonagens->getEntidade(i)->getPosicao().getX() < pEstaticos->getEntidade(j)->getPosicao().getX())
+							(pPersonagens->getEntidade(i)->Move(coordenadas::vetorfloat(intersecao.getX(), 0.0f)));
 						else
-							(characters->getEntidade(i)->Move(coordenadas::vetorfloat(-intersecao.getX(), 0.0f)));
+							(pPersonagens->getEntidade(i)->Move(coordenadas::vetorfloat(-intersecao.getX(), 0.0f)));
 					}
 					else
 					{
-						if (characters->getEntidade(i)->getPosicao().getY() < statics->getEntidade(j)->getPosicao().getY())
+						if (pPersonagens->getEntidade(i)->getPosicao().getY() < pEstaticos->getEntidade(j)->getPosicao().getY())
 						{
-							(characters->getEntidade(i)->Move(coordenadas::vetorfloat(0.0f, intersecao.getY())));
+							(pPersonagens->getEntidade(i)->Move(coordenadas::vetorfloat(0.0f, intersecao.getY())));
 							if (i == 0)//se estiver analisando o jogador
 							{
-								static_cast<Entities::Jogador*>(characters->getEntidade(i))->setPodePular(true);
+								static_cast<Entities::Jogador*>(pPersonagens->getEntidade(i))->setPodePular(true);
 							}
 						}
 						else
 						{
-							(characters->getEntidade(i)->Move(coordenadas::vetorfloat(0.0f, -intersecao.getY())));
+							(pPersonagens->getEntidade(i)->Move(coordenadas::vetorfloat(0.0f, -intersecao.getY())));
 						}
 					}
 				}

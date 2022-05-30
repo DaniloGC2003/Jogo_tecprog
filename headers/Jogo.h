@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
 #include <SFML/Graphics.hpp>
 #include "Gerenciador_grafico.h"
 #include "ListaEntidades.h"
@@ -11,11 +13,12 @@
 #include "Obstaculo.h"
 #include "Lago.h"
 #include "Inimigo.h"
+#include "Lesma.h"
 class Jogo
 {
 private:
 	sf::Clock relogio;
-	Gerenciadores::Gerenciador_grafico graficos;
+	Gerenciadores::Gerenciador_grafico grafico;
 	Gerenciadores::Gerenciador_colisoes colisoes;
 	sf::View camera;
 	Lists::ListaEntidades personagens;
@@ -25,6 +28,8 @@ private:
 	Entities::Lago lago;
 	Entities::Ente background;
 
+	sf::Text mostraVida;
+	sf::Font* fonte;
 public:
 	Jogo();
 	~Jogo();

@@ -27,8 +27,8 @@ namespace Entities
 		}
 		if (pColisoes->verifica_colisao(pJogador, this))
 		{
-			pJogador->setVida(pJogador->getVida() - 5);
-
+			pJogador->setVida(pJogador->getVida() - DANO);
+			pColisoes->getpPersonagens()->deleteEntidade(this);
 		}
 		Move(vetVel);
 		getAnimacao()->render();

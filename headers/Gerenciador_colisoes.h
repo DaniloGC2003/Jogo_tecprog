@@ -19,14 +19,15 @@ namespace Gerenciadores
 
 		void setpPersonagens(Lists::ListaEntidades* pP);
 		void setpEstaticos(Lists::ListaEntidades* pE);
-
+		Lists::ListaEntidades* getpPersonagens() { return pPersonagens; }
+		Lists::ListaEntidades* getpEstaticos() { return pEstaticos; }
 
 		coordenadas::vetorfloat getMeioTamanho(Entities::Entidade* ent);
 		coordenadas::vetorfloat getDistancia(Entities::Entidade* body1, Entities::Entidade* body2);
 		coordenadas::vetorfloat getIntersecao(Entities::Entidade* body1, Entities::Entidade* body2);
 
 		bool verifica_colisao(Entities::Entidade* ent1, Entities::Entidade* ent2);
-		void colidir(Lists::ListaEntidades* characters, Lists::ListaEntidades* statics);
+		void colidir();//(Lists::ListaEntidades* characters, Lists::ListaEntidades* statics);
 	};
 
 }

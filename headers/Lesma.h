@@ -1,5 +1,6 @@
 #pragma once
 #include "Inimigo.h"
+#define DANO 25
 
 namespace Entities
 {
