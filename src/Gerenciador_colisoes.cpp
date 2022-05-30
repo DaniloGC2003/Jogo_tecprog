@@ -1,14 +1,31 @@
 #include "../headers/Gerenciador_colisoes.h"
 namespace Gerenciadores
 {
-	Gerenciador_colisoes::Gerenciador_colisoes()
+	Gerenciador_colisoes::Gerenciador_colisoes(Lists::ListaEntidades* pP, Lists::ListaEntidades* pE)
+		: pPersonagens(pP), pEstaticos(pE)
+	{
+	}
+	Gerenciador_colisoes::Gerenciador_colisoes() : pPersonagens(nullptr), pEstaticos(nullptr)
 	{
 
 	}
 
 	Gerenciador_colisoes::~Gerenciador_colisoes()
 	{
+		pPersonagens = nullptr;
+		pEstaticos = nullptr;
+	}
 
+	void Gerenciador_colisoes::setpPersonagens(Lists::ListaEntidades* pP)
+	{
+		if (pP)
+			pPersonagens = pP;
+	}
+
+	void Gerenciador_colisoes::setpEstaticos(Lists::ListaEntidades* pE)
+	{
+		if (pE)
+			pEstaticos = pE;
 	}
 
 	bool Gerenciador_colisoes::verifica_colisao(Entities::Entidade* ent1, Entities::Entidade* ent2)

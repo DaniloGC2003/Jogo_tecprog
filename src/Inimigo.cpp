@@ -25,6 +25,8 @@ namespace Entities
 			else
 				vetVel -= coordenadas::vetorfloat((float)SPEED_X, 0.f);
 		}
+		/*if (pColisoes->verifica_colisao(pJogador, this))
+			pJogador->setVida(pJogador->getVida() - 5);*/
 		Move(vetVel);
 		getAnimacao()->render();
 	}

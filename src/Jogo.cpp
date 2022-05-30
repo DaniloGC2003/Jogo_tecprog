@@ -14,7 +14,7 @@ background(coordenadas::vetorfloat(0.f, 0.f), graficos.getInstance(), "tile15.pn
     lago.getAnimacao()->mudaEscala(10.0f, 1.0f);
     estaticas.pushEntidade(&lago);
 
-    Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Inimigo(coordenadas::vetorfloat(201.f, 110.f), graficos.getInstance(), "preview.png", &jogador, &colisoes));
+    Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Inimigo(coordenadas::vetorfloat(400.f, 110.f), graficos.getInstance(), "Centipede.png", &jogador, &colisoes));
     personagens.pushEntidade(pEnt);
 
     //Entities::Personagem* pPers = new Entities::Personagem(coordenadas::vetorfloat(350.f, 350.f), graficos.getInstance(), "Woodcutter.png", coordenadas::vetorfloat(0.1f, 0.1f));
@@ -69,6 +69,7 @@ void Jogo::Executar()
             
             estaticas.getEntidade(i)->executar();
         }
+
 
         graficos.getJanela()->setView(camera);
         camera.setCenter(sf::Vector2f(jogador.getPosicao().getX(), jogador.getPosicao().getY()));

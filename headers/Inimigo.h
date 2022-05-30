@@ -8,13 +8,13 @@ namespace Entities
 	class Inimigo :
 		public Personagem
 	{
-	private:
+	protected:
 		Jogador* pJogador;
 		Gerenciadores::Gerenciador_colisoes* pColisoes;
 	public:
 		Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC);
 		Inimigo();
-		~Inimigo();
+		virtual ~Inimigo();
 
 		virtual void executar();
 	};

@@ -12,7 +12,7 @@ namespace Entities
 	public:
 		Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem);
 		Personagem();
-		~Personagem();
+		virtual ~Personagem();
 
 		//coordenadas::vetorfloat getVelocidade() const { return velocidade; }
 		//void setVelocidade(coordenadas::vetorfloat vel) { velocidade = vel; }

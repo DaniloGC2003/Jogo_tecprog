@@ -10,9 +10,16 @@ namespace Gerenciadores
 	class Gerenciador_colisoes
 	{
 	private:
+		Lists::ListaEntidades* pPersonagens;
+		Lists::ListaEntidades* pEstaticos;
 	public:
+		Gerenciador_colisoes(Lists::ListaEntidades* pP, Lists::ListaEntidades* pE);
 		Gerenciador_colisoes();
 		~Gerenciador_colisoes();
+
+		void setpPersonagens(Lists::ListaEntidades* pP);
+		void setpEstaticos(Lists::ListaEntidades* pE);
+
 
 		coordenadas::vetorfloat getMeioTamanho(Entities::Entidade* ent);
 		coordenadas::vetorfloat getDistancia(Entities::Entidade* body1, Entities::Entidade* body2);
