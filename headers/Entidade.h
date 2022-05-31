@@ -4,6 +4,8 @@
 #include "ID.h"
 #include "Vetor.h"
 #include <SFML\Graphics.hpp>
+#define GRAVITY 0.2
+
 namespace Entities {
 
     class Entidade : public Ente {

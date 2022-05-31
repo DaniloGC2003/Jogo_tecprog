@@ -14,6 +14,8 @@
 #include "Agua.h"
 #include "Inimigo.h"
 #include "Lesma.h"
+#include "Barril.h"
+#include "Monstro.h"
 class Jogo
 {
 private:

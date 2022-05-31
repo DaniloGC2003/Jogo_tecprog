@@ -1,20 +1,20 @@
-#include "../headers/Lesma.h"
+#include "../headers/Monstro.h"
 namespace Entities
 {
-	Lesma::Lesma(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC)
+	Monstro::Monstro(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC)
 		: Inimigo(pos, pGraf, pathImagem, pJ, pGC)
 	{
 	}
 
-	Lesma::Lesma() : Inimigo()
+	Monstro::Monstro() : Inimigo()
 	{
 	}
 
-	Lesma::~Lesma()
+	Monstro::~Monstro()
 	{
 	}
 
-	void Lesma::executar()
+	void Monstro::executar()
 	{
 		coordenadas::vetorfloat vetVel(0.f, (float)GRAVITY);
 		float distancia = pJogador->getPos().getX() - getPos().getX();

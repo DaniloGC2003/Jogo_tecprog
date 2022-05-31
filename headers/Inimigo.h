@@ -2,7 +2,6 @@
 #include "Personagem.h"
 #include "Jogador.h"
 #include "Gerenciador_colisoes.h"
-#define SPEED_X 0.15
 namespace Entities
 {
 	class Inimigo :
