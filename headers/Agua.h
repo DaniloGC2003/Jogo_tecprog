@@ -2,13 +2,13 @@
 #include "Obstaculo.h"
 namespace Entities {
 
-	class Lago : public Obstaculo
+	class Agua : public Obstaculo
 	{
 	private:
 	public:
-		Lago(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
-		Lago();
-		~Lago();
+		Agua(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
+		Agua();
+		~Agua();
 	};
 }
 

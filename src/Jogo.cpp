@@ -2,7 +2,7 @@
 
 Jogo::Jogo() : camera(sf::Vector2f(0.f, 0.f), sf::Vector2f(600.f, 600.f)), grafico(), colisoes(&personagens, &estaticas),
 jogador(coordenadas::vetorfloat(101.f, 110.f), grafico.getInstance(), "Woodcutter.png"),
-lago(coordenadas::vetorfloat(300.f, 300.f), grafico.getInstance(), "preview.png"),
+agua(coordenadas::vetorfloat(300.f, 300.f), grafico.getInstance(), "preview.png"),
 background(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "tile15.png"),
 mostraVida(), fonte()
 {
@@ -12,8 +12,8 @@ mostraVida(), fonte()
     personagens.pushEntidade(static_cast<Entities::Entidade*>(& jogador));
 
     //plataforma.mudarPos(coordenadas::vetorfloat(300.f, 300.f));
-    lago.getAnimacao()->mudaEscala(10.0f, 1.0f);
-    estaticas.pushEntidade(&lago);
+    agua.getAnimacao()->mudaEscala(10.0f, 1.0f);
+    estaticas.pushEntidade(&agua);
 
     Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(400.f, 110.f), grafico.getInstance(), "preview.png", &jogador, &colisoes));
     personagens.pushEntidade(pEnt);

@@ -11,7 +11,7 @@
 #include "Jogador.h"
 #include "Ente.h"
 #include "Obstaculo.h"
-#include "Lago.h"
+#include "Agua.h"
 #include "Inimigo.h"
 #include "Lesma.h"
 class Jogo
@@ -25,7 +25,7 @@ private:
 	Lists::ListaEntidades estaticas;
 
 	Entities::Jogador jogador;
-	Entities::Lago lago;
+	Entities::Agua agua;
 	Entities::Ente background;
 
 	sf::Text mostraVida;

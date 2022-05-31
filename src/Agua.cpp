@@ -1,14 +1,14 @@
-#include "../headers/Lago.h"
+#include "../headers/Agua.h"
 
-Entities::Lago::Lago(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho):
+Entities::Agua::Agua(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho):
 	Obstaculo(pos,pGraf,caminho)
 {
 }
 
-Entities::Lago::Lago()
+Entities::Agua::Agua()
 {
 }
 
-Entities::Lago::~Lago()
+Entities::Agua::~Agua()
 {
 }
