@@ -59,7 +59,7 @@ namespace Gerenciadores
 			{
 				if (verifica_colisao(pEnt, pPersonagens->getEntidade(i)))
 				{
-					printf("colide\n");
+					//printf("colide\n");
 					return true;
 
 				}

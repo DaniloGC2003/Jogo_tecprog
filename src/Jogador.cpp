@@ -48,7 +48,7 @@ namespace Entities
                 vetVel = coordenadas::vetorfloat(vetVel.getX(), (float)GRAVITY);//gravidade
             }
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && cooldownTiro >= 150.f)
+        /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && cooldownTiro >= 150.f)
         {
             cooldownTiro = 0.f;
             std::cout << "oi\n";
@@ -58,7 +58,7 @@ namespace Entities
         if (cooldownTiro < 150.f)
             cooldownTiro += 0.1f;
         else
-            cooldownTiro = 150.f;
+            cooldownTiro = 150.f;*/
 
         if (vida < 0)
             vida = 0;
