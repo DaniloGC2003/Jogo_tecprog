@@ -1,7 +1,7 @@
 #include "../headers/Lago.h"
 
-Entities::Lago::Lago(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho):
-	Obstaculo(pos,pGraf,caminho)
+Entities::Lago::Lago(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho):
+	Obstaculo(pos,pGraf,pGC,caminho)
 {
 }
 

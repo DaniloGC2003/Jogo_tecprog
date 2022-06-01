@@ -6,7 +6,7 @@ namespace Entities {
 	{
 	private:
 	public:
-		Agua(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
+		Agua(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
 		Agua();
 		~Agua();
 	};

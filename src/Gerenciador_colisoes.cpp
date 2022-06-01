@@ -37,6 +37,37 @@ namespace Gerenciadores
 		return false;
 	}
 
+	bool Gerenciador_colisoes::verifica_colisao_estaticos(Entities::Entidade* pEnt)
+	{
+		for (int i = 0; i < pEstaticos->getTamanho(); i++)
+		{
+			//std::cout << pEstaticos->getTamanho() << "\n";
+			if (verifica_colisao(pEnt, pEstaticos->getEntidade(i)))
+			{
+				std::cout << "oie\n";
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool Gerenciador_colisoes::verifica_colisao_personagens(Entities::Entidade* pEnt)
+	{
+		for (int i = 0; i < pPersonagens->getTamanho(); i++)
+		{
+			if (pEnt != pPersonagens->getEntidade(i))
+			{
+				if (verifica_colisao(pEnt, pPersonagens->getEntidade(i)))
+				{
+					printf("colide\n");
+					return true;
+
+				}
+			}
+		}
+		return false;
+	}
+
 	coordenadas::vetorfloat Gerenciador_colisoes::getMeioTamanho(Entities::Entidade* ent)
 	{
 		return ent->getTamanho() / 2;
@@ -44,7 +75,8 @@ namespace Gerenciadores
 
 	coordenadas::vetorfloat Gerenciador_colisoes::getDistancia(Entities::Entidade* body1, Entities::Entidade* body2)
 	{
-		return coordenadas::vetorfloat(body2->getPosicao().getX() - body1->getPosicao().getX(), body2->getPosicao().getY() - body1->getPosicao().getY());;
+		return coordenadas::vetorfloat(body2->getPos().getX() - body1->getPos().getX(), body2->getPos().getY() - body1->getPos().getY());;
+		//return coordenadas::vetorfloat(body2->getPosicao().getX() - body1->getPosicao().getX(), body2->getPosicao().getY() - body1->getPosicao().getY());;
 	}
 
 	coordenadas::vetorfloat Gerenciador_colisoes::getIntersecao(Entities::Entidade* body1, Entities::Entidade* body2)

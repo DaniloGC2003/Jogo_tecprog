@@ -3,13 +3,14 @@ namespace Animation
 {
     //const float Animacao::switchTime = 0.3;
 
-    Animation::Animacao::Animacao(const char* caminho, Gerenciadores::Gerenciador_grafico* pGraf) :
-        pGraf(pGraf), corpo(),
-        textura(pGraf->carregaTextura(caminho))
+    Animation::Animacao::Animacao(coordenadas::vetorfloat posicao, const char* caminho, Gerenciadores::Gerenciador_grafico* pGraf) :
+        pGraf(pGraf), textura(pGraf->carregaTextura(caminho)), corpo()
+         
     {
         corpo.setTexture(textura);
         corpo.setSize(sf::Vector2f(textura->getSize().x, textura->getSize().y));
-        corpo.setOrigin(corpo.getSize().x / 2, corpo.getSize().y / 2);
+        corpo.setOrigin(corpo.getSize().x / 2.f, corpo.getSize().y / 2.f);
+        corpo.setPosition(posicao.getX(), posicao.getY());
     }
 
     Animacao::Animacao() : pGraf(nullptr), corpo(), textura(nullptr)

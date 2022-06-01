@@ -1,7 +1,7 @@
 #pragma once
 #include "Inimigo.h"
-#define DANO 20
-#define SPEED_X 0.2
+#define DANO_MONSTRO 20
+#define SPEED_MONSTRO 0.2
 namespace Entities
 {
 	class Monstro :

@@ -1,5 +1,6 @@
 #pragma once
 #include "Personagem.h"
+#include "Projetil.h"
 #define SPEED_X 0.25
 #define PULO 150
 namespace Entities
@@ -10,10 +11,12 @@ namespace Entities
 	private:
 		bool podePular;
 		bool pulando;
+		bool olhandoParaDireita;
 		coordenadas::vetorfloat vetVel;//vetor velocidade. jogador vai se mover no sentido desse vetor
 		float maxAltura;
+		float cooldownTiro;
 	public:
-		Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem);
+		Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem);
 		Jogador();
 		~Jogador();
 

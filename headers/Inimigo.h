@@ -9,7 +9,6 @@ namespace Entities
 	{
 	protected:
 		Jogador* pJogador;
-		Gerenciadores::Gerenciador_colisoes* pColisoes;
 	public:
 		Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC);
 		Inimigo();

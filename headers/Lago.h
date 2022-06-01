@@ -6,7 +6,7 @@ namespace Entities {
 	{
 	private:
 	public:
-		Lago(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
+		Lago(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
 		Lago();
 		~Lago();
 	};

@@ -16,7 +16,7 @@ namespace Animation
         sf::RectangleShape corpo;
 
     public:
-        Animacao(const char* caminho, Gerenciadores::Gerenciador_grafico* pGraf);
+        Animacao(coordenadas::vetorfloat posicao,const char* caminho, Gerenciadores::Gerenciador_grafico* pGraf);
         Animacao();
         ~Animacao();
 
@@ -25,6 +25,7 @@ namespace Animation
         void setPosicao(coordenadas::vetorfloat v) { corpo.setPosition(v.getX(), v.getY()); }
         sf::RectangleShape* getCorpo() { return &corpo; }
         coordenadas::vetorfloat getTam();
+        Gerenciadores::Gerenciador_grafico* getpGraf() { return pGraf; }
 
         void mudaEscala(float mult_x, float mult_y);
     };

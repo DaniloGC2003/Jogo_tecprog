@@ -2,10 +2,10 @@
 namespace Entities
 {
 	Inimigo::Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC)
-		: Personagem(pos, pGraf, pathImagem), pJogador(pJ), pColisoes(pGC)
+		: Personagem(pos, pGraf, pGC, pathImagem), pJogador(pJ)
 	{
 	}
-	Inimigo::Inimigo() : Personagem(), pJogador(nullptr), pColisoes(nullptr)
+	Inimigo::Inimigo() : Personagem(), pJogador(nullptr)
 	{
 	}
 	Inimigo::~Inimigo()

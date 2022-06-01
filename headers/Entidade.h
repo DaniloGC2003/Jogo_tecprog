@@ -4,17 +4,22 @@
 #include "ID.h"
 #include "Vetor.h"
 #include <SFML\Graphics.hpp>
+namespace Gerenciadores
+{
+    class Gerenciador_grafico;
+    class Gerenciador_colisoes;
+}
 #define GRAVITY 0.2
 
 namespace Entities {
 
     class Entidade : public Ente {
     protected:
+        Gerenciadores::Gerenciador_colisoes* pColisoes;
     public:
         //Entidade(ID_Ent::ID id, coordenadas::vetorfloat pos, sf::RectangleShape hit);
-        Entidade(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem);
+        Entidade(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem);
         Entidade();
-        //virtual ~Entidade();
         virtual ~Entidade();
 
         void mudarPosicao(coordenadas::vetorfloat pos);

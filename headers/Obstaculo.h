@@ -7,7 +7,7 @@ namespace Entities {
 	{
 	protected:
 	public:
-		Obstaculo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
+		Obstaculo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
 		Obstaculo();
 		~Obstaculo();
 	};

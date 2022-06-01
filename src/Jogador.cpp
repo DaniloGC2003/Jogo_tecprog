@@ -2,14 +2,14 @@
 
 namespace Entities
 {
-	Entities::Jogador::Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem)
-		: Personagem(pos, pGraf, pathImagem), podePular(false), pulando(false), 
-         vetVel(0.f,(float)GRAVITY), maxAltura(0.f)
+	Entities::Jogador::Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem)
+		: Personagem(pos, pGraf, pGC, pathImagem), podePular(false), pulando(false), olhandoParaDireita(false),
+         vetVel(0.f,(float)GRAVITY), maxAltura(0.f), cooldownTiro(150.f)
 	{
 	}
 
-	Entities::Jogador::Jogador() : Personagem(), podePular(false), pulando(false), 
-         vetVel(0.f, (float)GRAVITY), maxAltura(0.f)
+	Entities::Jogador::Jogador() : Personagem(), podePular(false), pulando(false), olhandoParaDireita(false),
+         vetVel(0.f, (float)GRAVITY), maxAltura(0.f), cooldownTiro(150.f)
 	{
 	}
 
@@ -22,14 +22,15 @@ namespace Entities
         vetVel = coordenadas::vetorfloat(0.f, vetVel.getY());
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
+            olhandoParaDireita = true;
             vetVel = coordenadas::vetorfloat((float)SPEED_X, vetVel.getY());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
+            olhandoParaDireita = false;
             vetVel = coordenadas::vetorfloat((float) - SPEED_X, vetVel.getY());
 
         }
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular)
         {
             maxAltura = (float)PULO;
@@ -47,7 +48,20 @@ namespace Entities
                 vetVel = coordenadas::vetorfloat(vetVel.getX(), (float)GRAVITY);//gravidade
             }
         }
-        //std::cout << (int)podePular << std::endl;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && cooldownTiro >= 150.f)
+        {
+            cooldownTiro = 0.f;
+            std::cout << "oi\n";
+            Entidade* pEnt = static_cast<Entidade*>(new Projetil(this, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf()));
+            pColisoes->getpPersonagens()->pushEntidade(pEnt);
+        }
+        if (cooldownTiro < 150.f)
+            cooldownTiro += 0.1f;
+        else
+            cooldownTiro = 150.f;
+
+        if (vida < 0)
+            vida = 0;
         Move(vetVel);
         getAnimacao()->render();
 	}

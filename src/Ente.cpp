@@ -4,12 +4,12 @@ namespace Entities
 {
 
     Ente::Ente(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho) :
-        RectangleShape(caminho, pGraf)
+        RectangleShape(pos, caminho, pGraf), posicao(pos)
     {
         mudarPos(pos);
     }
 
-    Ente::Ente() : RectangleShape() {
+    Ente::Ente() : RectangleShape(), posicao() {
         //this->id = ID_Ent::empty;
     }
 
