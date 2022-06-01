@@ -42,16 +42,16 @@ namespace Gerenciadores
 		for (int i = 0; i < pEstaticos->getTamanho(); i++)
 		{
 			//std::cout << pEstaticos->getTamanho() << "\n";
-			if (verifica_colisao(pEnt, pEstaticos->getEntidade(i)))
+			if (verifica_colisao(pEstaticos->getEntidade(i), pEnt))
 			{
-				std::cout << "oie\n";
+				//std::cout << "oie\n";
 				return true;
 			}
 		}
 		return false;
 	}
 
-	bool Gerenciador_colisoes::verifica_colisao_personagens(Entities::Entidade* pEnt)
+	bool Gerenciador_colisoes::verifica_projetil_personagens(Entities::Entidade* pEnt)
 	{
 		for (int i = 0; i < pPersonagens->getTamanho(); i++)
 		{
@@ -59,6 +59,7 @@ namespace Gerenciadores
 			{
 				if (verifica_colisao(pEnt, pPersonagens->getEntidade(i)))
 				{
+					static_cast<Entities::Personagem*>(pPersonagens->getEntidade(i))->tomaDano(static_cast<Entities::Projetil*>(pEnt)->getDano());
 					//printf("colide\n");
 					return true;
 

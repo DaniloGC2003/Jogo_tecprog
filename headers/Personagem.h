@@ -19,6 +19,7 @@ namespace Entities
 
 		int getVida() { return vida; }
 		void setVida(int hp) { vida = hp; }
+		void tomaDano(int hp);
 
 		virtual void executar();
 	};

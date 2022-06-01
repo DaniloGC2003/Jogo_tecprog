@@ -4,6 +4,7 @@ Jogo::Jogo() : camera(sf::Vector2f(0.f, 0.f), sf::Vector2f(960.f, 540.f)), grafi
 jogador(coordenadas::vetorfloat(101.f, 110.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/Woodcutter.png"),
 agua(coordenadas::vetorfloat(300.f, 300.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/preview.png"),
 background(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile15.png"),
+barril(coordenadas::vetorfloat(150.f, 265.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/Fishbarrel4.png"),
 mostraVida(), fonte()
 {
 
@@ -14,12 +15,13 @@ mostraVida(), fonte()
     agua.getAnimacao()->mudaEscala(50.0f, 1.0f);
     estaticas.pushEntidade(&agua);
 
+    estaticas.pushEntidade(&barril);
+
     Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(600.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Lesma.png", &jogador, &colisoes));
     personagens.pushEntidade(pEnt);
     pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(550.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Monstro.png", &jogador, &colisoes));
     personagens.pushEntidade(pEnt);
-    pEnt = static_cast<Entities::Entidade*>(new Entities::Barril(coordenadas::vetorfloat(150.f, 265.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/Fishbarrel4.png"));
-    estaticas.pushEntidade(pEnt);
+
 
     fonte = grafico.carregaFonte("texturas_e_fontes/Pixellari.ttf");
     mostraVida.setFont(*fonte);

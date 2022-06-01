@@ -29,6 +29,7 @@ private:
 	Entities::Jogador jogador;
 	Entities::Agua agua;
 	Entities::Ente background;
+	Entities::Barril barril;
 
 	sf::Text mostraVida;
 	sf::Font* fonte;

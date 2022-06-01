@@ -30,7 +30,7 @@ namespace Gerenciadores
 
 		bool verifica_colisao(Entities::Entidade* ent1, Entities::Entidade* ent2);
 		bool verifica_colisao_estaticos(Entities::Entidade* pEnt);//verifica colisao de uma entidade com qualquer obstaculo
-		bool verifica_colisao_personagens(Entities::Entidade* pEnt);
+		bool verifica_projetil_personagens(Entities::Entidade* pEnt);
 		void colidir();//(Lists::ListaEntidades* characters, Lists::ListaEntidades* statics);
 	};
 

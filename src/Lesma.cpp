@@ -40,7 +40,10 @@ namespace Entities
 			}
 			flagEliminado = true;
 		}
-
+		if (vida == 0)
+		{
+			flagEliminado = true;
+		}
 		Move(vetVel);
 
 		getAnimacao()->render();

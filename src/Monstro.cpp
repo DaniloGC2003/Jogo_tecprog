@@ -35,6 +35,10 @@ namespace Entities
 			flagEliminado = true;
 			//pColisoes->getpPersonagens()->deleteEntidade(this);
 		}
+		if (vida == 0)
+		{
+			flagEliminado = true;
+		}
 		Move(vetVel);
 		getAnimacao()->render();
 		if (flagEliminado)

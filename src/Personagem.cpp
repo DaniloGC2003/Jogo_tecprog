@@ -11,6 +11,12 @@ namespace Entities
 	Personagem::~Personagem()
 	{
 	}
+	void Personagem::tomaDano(int hp)
+	{
+		vida -= hp;
+		if (vida < 0)
+			vida = 0;
+	}
 	void Personagem::executar()
 	{
         MoveCorpo(coordenadas::vetorfloat(0.f, 0.4f));//gravidade
