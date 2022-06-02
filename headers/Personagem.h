@@ -10,7 +10,7 @@ namespace Entities
 		int vida; //health points
 		//coordenadas::vetorfloat velocidade;
 	public:
-		Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem);
+		Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem, int pontosVida = 100);
 		Personagem();
 		virtual ~Personagem();
 

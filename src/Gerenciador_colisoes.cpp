@@ -42,7 +42,7 @@ namespace Gerenciadores
 		for (int i = 0; i < pEstaticos->getTamanho(); i++)
 		{
 			//std::cout << pEstaticos->getTamanho() << "\n";
-			if (verifica_colisao(pEstaticos->getEntidade(i), pEnt))
+			if (verifica_colisao(pEnt, pEstaticos->getEntidade(i)))
 			{
 				//std::cout << "oie\n";
 				return true;

@@ -16,6 +16,7 @@
 #include "Lesma.h"
 #include "Barril.h"
 #include "Monstro.h"
+#include "Tartaruga.h"
 class Jogo
 {
 private:

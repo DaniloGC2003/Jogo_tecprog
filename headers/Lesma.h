@@ -1,6 +1,6 @@
 #pragma once
 #include "Inimigo.h"
-#define DANO 30
+#define DANO_LESMA 30
 #define SPEED_LESMA 0.1
 
 namespace Entities

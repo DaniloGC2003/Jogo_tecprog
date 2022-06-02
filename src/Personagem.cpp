@@ -1,8 +1,8 @@
 #include "../headers/Personagem.h"
 namespace Entities
 {
-	Personagem::Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem) :
-		Entidade(pos, pGraf, pGC, pathImagem), vida(100)
+	Personagem::Personagem(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem, int pontosVida) :
+		Entidade(pos, pGraf, pGC, pathImagem), vida(pontosVida)
 	{
 	}
 	Personagem::Personagem() : Entidade(), vida(0)

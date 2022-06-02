@@ -10,7 +10,7 @@ namespace Entities
 	protected:
 		Jogador* pJogador;
 	public:
-		Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC);
+		Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC, int pontosVida = 100);
 		Inimigo();
 		virtual ~Inimigo();
 

@@ -22,6 +22,7 @@ namespace Entities
 
 		void setPodePular(bool valor) { podePular = valor; }
 		bool getPodePular() { return podePular; }
+
 		void executar();
 	};
 }

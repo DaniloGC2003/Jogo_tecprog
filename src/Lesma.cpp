@@ -30,7 +30,7 @@ namespace Entities
 		{
 			if (pJogador->getVida() > 25)
 			{
-				pJogador->setVida(pJogador->getVida() - DANO);
+				pJogador->setVida(pJogador->getVida() - DANO_LESMA);
 				//std::cout << "opa\n";
 			}
 			else

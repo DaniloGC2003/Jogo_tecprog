@@ -17,7 +17,7 @@ namespace Entities
 	{
 	}
 
-	void Jogador::executar()
+    void Jogador::executar()
 	{
         vetVel = coordenadas::vetorfloat(0.f, vetVel.getY());
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -48,11 +48,22 @@ namespace Entities
                 vetVel = coordenadas::vetorfloat(vetVel.getX(), (float)GRAVITY);//gravidade
             }
         }
+
+
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && cooldownTiro >= 150.f)
         {
             cooldownTiro = 0.f;
+            Entidade* pEnt;
+            if (olhandoParaDireita)
+            {
+                pEnt = static_cast<Entidade*>(new Projetil(this, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf(), true));
+            }
+            else
+            {
+                pEnt = pEnt = static_cast<Entidade*>(new Projetil(this, pColisoes, coordenadas::vetorfloat(getPos().getX() - 50, getPos().getY()), getAnimacao()->getpGraf(), false));
+            }
+    
             //std::cout << "oi\n";
-            Entidade* pEnt = static_cast<Entidade*>(new Projetil(this, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf()));
             pColisoes->getpPersonagens()->pushEntidade(pEnt);
         }
         if (cooldownTiro < 150.f)

@@ -17,10 +17,10 @@ mostraVida(), fonte()
 
     estaticas.pushEntidade(&barril);
 
-    Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(600.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Lesma.png", &jogador, &colisoes));
-    personagens.pushEntidade(pEnt);
-    pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(550.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Monstro.png", &jogador, &colisoes));
-    personagens.pushEntidade(pEnt);
+    //Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Tartaruga(coordenadas::vetorfloat(600.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Battle_turtle.png", &jogador, &colisoes));
+    //personagens.pushEntidade(pEnt);
+   // pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(550.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Monstro.png", &jogador, &colisoes));
+    //personagens.pushEntidade(pEnt);
 
 
     fonte = grafico.carregaFonte("texturas_e_fontes/Pixellari.ttf");
