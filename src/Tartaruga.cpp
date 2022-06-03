@@ -15,8 +15,9 @@ namespace Entities
 	{
 		bool flagEliminado = false;
 		coordenadas::vetorfloat vetVel(0.f, (float)GRAVITY);
+
 		float distancia = pJogador->getPos().getX() - this->getPos().getX();
-		if (fabs(distancia) < 200.f)//se a distancia entre inimigo e jogador for menor que 200
+		if (fabs(distancia) < 300.f)//se a distancia entre inimigo e jogador for menor que 300
 		{
 			if (distancia > 0.f)
 			{
@@ -28,30 +29,30 @@ namespace Entities
 				olhandoParaDireita = false;
 				vetVel -= coordenadas::vetorfloat((float)VEL_TARTARUGA, 0.f);
 			}
-			if (cooldownTiro >= (float)COOLDOWN_TIRO)
+			if (cooldownTiro >= (float)COOLDOWN_TIRO)//se pode atirar
 			{
 				cooldownTiro = 0.f;
 				Entidade* pEnt;
-				if (olhandoParaDireita)
+				if (olhandoParaDireita)//cria projetil
 				{
-					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf(), true));
+					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf(), true, "texturas_e_fontes/Bullet1.png", 30));
 				}
 				else
 				{
-					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() - 50, getPos().getY()), getAnimacao()->getpGraf(), false));
+					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() - 50, getPos().getY()), getAnimacao()->getpGraf(), false, "texturas_e_fontes/Bullet1.png", 30));
 				}
-				pColisoes->getpPersonagens()->pushEntidade(pEnt);
+				pColisoes->getpProjeteis()->pushEntidade(pEnt);
 			}
 		}
 
 
-		if (cooldownTiro < 150.f)
+		if (cooldownTiro < (float)COOLDOWN_TIRO)
 			cooldownTiro += 0.1f;
 		else
-			cooldownTiro = 150.f;
+			cooldownTiro = (float)COOLDOWN_TIRO;
 
 
-		if (pColisoes->verifica_colisao(pJogador, static_cast<Entidade*>(this)))
+		if (pColisoes->verifica_colisao(pJogador, static_cast<Entidade*>(this)))//jogador automaticamente morre se encostar na tartaruga
 		{
 			pJogador->setVida(0);
 			flagEliminado = true;
@@ -61,11 +62,10 @@ namespace Entities
 			flagEliminado = true;
 		}
 
-
 		Move(vetVel);
-
 		getAnimacao()->render();
-		if (flagEliminado)
+
+		if (flagEliminado)//se flag for true, tartaruga sera deletada
 		{
 			pColisoes->getpPersonagens()->deleteEntidade(static_cast<Entidade*>(this));
 		}

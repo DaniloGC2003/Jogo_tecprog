@@ -1,4 +1,5 @@
 #pragma once
+//referencia usada para construir essa classe: https://www.youtube.com/watch?v=xD3A4CDlwpI&ab_channel=BurdaCanal
 namespace coordenadas
 {
     template <typename TL>

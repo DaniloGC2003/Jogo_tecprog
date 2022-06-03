@@ -26,11 +26,13 @@ private:
 	sf::View camera;
 	Lists::ListaEntidades personagens;
 	Lists::ListaEntidades estaticas;
+	Lists::ListaEntidades projeteis;
 
 	Entities::Jogador jogador;
 	Entities::Agua agua;
 	Entities::Ente background;
 	Entities::Barril barril;
+	Entities::Tartaruga tartaruga;
 
 	sf::Text mostraVida;
 	sf::Font* fonte;

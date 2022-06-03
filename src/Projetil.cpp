@@ -18,10 +18,7 @@ namespace Entities
 	{
 		return pColisoes->verifica_projetil_personagens(static_cast<Entidade*>(this));
 	}
-	/*bool Projetil::verificaColisao_obstaculos()
-	{
-		return pColisoes->verifica_colisao_estaticos(static_cast<Entidade*>(this));
-	}*/
+
 	void Projetil::executar()
 	{
 		bool flagEliminado = false;
@@ -43,9 +40,9 @@ namespace Entities
 			Move(coordenadas::vetorfloat(-(float)VEL_PROJETIL, 0.f));
 		}
 		getAnimacao()->render();
-		if (flagEliminado)
+		if (flagEliminado)//se flag for verdadeira, projetil sera deletado
 		{
-			pColisoes->getpPersonagens()->deleteEntidade(static_cast<Entidade*>(this));
+			pColisoes->getpProjeteis()->deleteEntidade(static_cast<Entidade*>(this));
 		}
 	}
 }

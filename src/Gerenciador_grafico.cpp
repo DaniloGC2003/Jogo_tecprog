@@ -1,18 +1,23 @@
 #include "../headers/Gerenciador_grafico.h"
 namespace Gerenciadores
 {
-    Gerenciador_grafico::Gerenciador_grafico() : janela(sf::VideoMode(960, 540), "SFML works!"), mapaTexturas(),
+    Gerenciador_grafico::Gerenciador_grafico() : janela(sf::VideoMode(960, 540), "JOGO"), mapaTexturas(),
     mapaFontes() 
     {
 
     }
 
     Gerenciador_grafico::~Gerenciador_grafico()
-    {
-        std::map<const char*, sf::Texture*>::iterator it;
+    {//libera a memoria alocada para elementos graficos
+        std::map<const char*, sf::Texture*>::iterator itT;
+        std::map<const char*, sf::Font*>::iterator itF;
 
-        for (it = mapaTexturas.begin(); it != mapaTexturas.end(); ++it) {
-            delete (it->second);
+        for (itT = mapaTexturas.begin(); itT != mapaTexturas.end(); ++itT) {
+            delete (itT->second);
+        }
+
+        for (itF = mapaFontes.begin(); itF != mapaFontes.end(); ++itF) {
+            delete (itF->second);
         }
 
     }
@@ -38,7 +43,7 @@ namespace Gerenciadores
     }
 
     sf::Texture* Gerenciador_grafico::carregaTextura(const char* path)
-    {
+    {//textura somente sera carregada se ainda nao houver sido 
         std::map<const char*, sf::Texture*>::iterator it = mapaTexturas.begin();
 
         while (it != mapaTexturas.end()) {

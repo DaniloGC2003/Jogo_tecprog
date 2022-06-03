@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include <iostream>
+//referencia para construir essa classe: https://www.youtube.com/watch?v=RFSOXXsm4Ug&ab_channel=BurdaCanal
 namespace Gerenciadores
 {
 	class Gerenciador_grafico
@@ -21,7 +22,6 @@ namespace Gerenciadores
 
 		sf::Texture* carregaTextura(const char* path);
 		sf::Font* carregaFonte(const char* path);
-		//void mostrar()
 	};
 
 

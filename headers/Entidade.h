@@ -17,7 +17,6 @@ namespace Entities {
     protected:
         Gerenciadores::Gerenciador_colisoes* pColisoes;
     public:
-        //Entidade(ID_Ent::ID id, coordenadas::vetorfloat pos, sf::RectangleShape hit);
         Entidade(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem);
         Entidade();
         virtual ~Entidade();
@@ -25,11 +24,8 @@ namespace Entities {
         void mudarPosicao(coordenadas::vetorfloat pos);
         coordenadas::vetorfloat getPosicao() const;
 
-        //sf::RectangleShape* getHitbox();
-
         virtual void executar();
 
-        //ID_Ent::ID getId();
         void Move(coordenadas::vetorfloat vec);
 
     };

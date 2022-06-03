@@ -8,7 +8,6 @@ namespace Entities
     {
     protected:
         Animation::Animacao RectangleShape;
-        //ID_Ent::ID id;
         coordenadas::vetorfloat posicao;
 
     public:
@@ -22,10 +21,7 @@ namespace Entities
 
         Animation::Animacao* getAnimacao() { return &RectangleShape; }
         coordenadas::vetorfloat getTamanho();
-        //ID_Ent::ID getID();
 
-        //virtual void initialize() = 0;
-        //virtual void update(float dt) = 0;
         virtual void render();
 
     };

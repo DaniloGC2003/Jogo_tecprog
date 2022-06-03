@@ -20,6 +20,8 @@ namespace Entities
     void Jogador::executar()
 	{
         vetVel = coordenadas::vetorfloat(0.f, vetVel.getY());
+
+        //movimentacao a partir de comandos do teclado
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
             olhandoParaDireita = true;
@@ -34,11 +36,12 @@ namespace Entities
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular)
         {
             maxAltura = (float)PULO;
-            vetVel += coordenadas::vetorfloat(0.f, -0.4f);
+            vetVel += coordenadas::vetorfloat(0.f, -0.4f);//velocidade vertical inverte sentido
             maxAltura -= 0.2f;
             podePular = false;
             pulando = true;
         }
+
         if (pulando)
         {
             maxAltura -= 0.2f;
@@ -50,10 +53,10 @@ namespace Entities
         }
 
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && cooldownTiro >= 150.f)
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && cooldownTiro >= 150.f)//atira projetil
         {
             cooldownTiro = 0.f;
-            Entidade* pEnt;
+            Entidade* pEnt;//projetil alocado dinamicamente
             if (olhandoParaDireita)
             {
                 pEnt = static_cast<Entidade*>(new Projetil(this, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf(), true));
@@ -63,8 +66,7 @@ namespace Entities
                 pEnt = pEnt = static_cast<Entidade*>(new Projetil(this, pColisoes, coordenadas::vetorfloat(getPos().getX() - 50, getPos().getY()), getAnimacao()->getpGraf(), false));
             }
     
-            //std::cout << "oi\n";
-            pColisoes->getpPersonagens()->pushEntidade(pEnt);
+            pColisoes->getpProjeteis()->pushEntidade(pEnt);
         }
         if (cooldownTiro < 150.f)
             cooldownTiro += 0.1f;
@@ -73,6 +75,7 @@ namespace Entities
 
         if (vida < 0)
             vida = 0;
+
         Move(vetVel);
         getAnimacao()->render();
 	}

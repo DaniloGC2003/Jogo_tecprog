@@ -27,11 +27,10 @@ namespace Entities
 				vetVel -= coordenadas::vetorfloat((float)SPEED_LESMA, 0.f);
 		}
 		if (pColisoes->verifica_colisao(pJogador, static_cast<Entidade*>(this)))
-		{
+		{//se ha colisao, jogador sofre dano
 			if (pJogador->getVida() > 25)
 			{
 				pJogador->setVida(pJogador->getVida() - DANO_LESMA);
-				//std::cout << "opa\n";
 			}
 			else
 			{
@@ -47,7 +46,7 @@ namespace Entities
 		Move(vetVel);
 
 		getAnimacao()->render();
-		if (flagEliminado)
+		if (flagEliminado)//se flag tiver valor true, lesma sera deletada
 		{
 			pColisoes->getpPersonagens()->deleteEntidade(static_cast<Entidade*>(this)) ;
 		}

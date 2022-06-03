@@ -14,7 +14,7 @@ namespace Entities
 		Inimigo();
 		virtual ~Inimigo();
 
-		virtual void executar();
+		virtual void executar() = 0;
 	};
 
 }

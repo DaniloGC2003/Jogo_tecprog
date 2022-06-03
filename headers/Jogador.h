@@ -9,11 +9,16 @@ namespace Entities
 		public Personagem
 	{
 	private:
+
+		//valores utilizados para mecanica de pulo do jogador
 		bool podePular;
 		bool pulando;
-		bool olhandoParaDireita;
+
+		bool olhandoParaDireita;//valor utilizado para determinar sentido do projetil atirado
 		coordenadas::vetorfloat vetVel;//vetor velocidade. jogador vai se mover no sentido desse vetor
+
 		float maxAltura;
+
 		float cooldownTiro;
 	public:
 		Jogador(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* pathImagem);

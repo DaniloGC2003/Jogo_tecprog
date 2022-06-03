@@ -29,7 +29,6 @@ namespace Entities
 		int getDano() { return dano; }
 
 		bool verificaColisao_personagens();
-		//bool verificaColisao_obstaculos();
 		void executar();
 	};
 }

@@ -5,7 +5,7 @@
 #include <math.h>
 #include "Vetor.h"
 #include <iostream>
-
+//referencia usada para construir essa classe: https://www.youtube.com/watch?v=KJJo9QPY8kI&t=719s&ab_channel=BurdaCanal
 namespace Animation
 {
 

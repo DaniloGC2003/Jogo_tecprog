@@ -33,7 +33,6 @@ namespace Entities
 			else
 				pJogador->setVida(0);
 			flagEliminado = true;
-			//pColisoes->getpPersonagens()->deleteEntidade(this);
 		}
 		if (vida == 0)
 		{
@@ -41,7 +40,7 @@ namespace Entities
 		}
 		Move(vetVel);
 		getAnimacao()->render();
-		if (flagEliminado)
+		if (flagEliminado)//se flag tiver valor true, monstro sera deletado
 		{
 			pColisoes->getpPersonagens()->deleteEntidade(this);
 		}

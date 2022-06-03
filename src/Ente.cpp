@@ -10,7 +10,7 @@ namespace Entities
     }
 
     Ente::Ente() : RectangleShape(), posicao() {
-        //this->id = ID_Ent::empty;
+        
     }
 
     Ente::~Ente() {
@@ -19,16 +19,12 @@ namespace Entities
 
     void Ente::mudarPos(coordenadas::vetorfloat pos) {
         posicao = pos;
-        RectangleShape.setPosicao(pos);
+        RectangleShape.setPosicao(pos);//muda a posicao do corpo (rectangle shape da sfml)
     }
 
     coordenadas::vetorfloat Ente::getPos() const {
         return posicao;
     }
-
-    /*ID_Ent::ID Ente::getID() {
-        return id;
-    }*/
 
     void Ente::MoveCorpo(coordenadas::vetorfloat v) {
         posicao += v;
