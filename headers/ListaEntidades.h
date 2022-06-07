@@ -15,5 +15,6 @@ namespace Lists
 		void deleteEntidade(Entities::Entidade* ent);
 		Entities::Entidade* getEntidade(int pos);
 		int getTamanho();
+		void percorrer();
 	};
 }

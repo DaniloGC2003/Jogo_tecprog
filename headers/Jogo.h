@@ -18,7 +18,7 @@
 #include "Monstro.h"
 #include "Tartaruga.h"
 #include "Menu.h"
-
+#include "PrimeiraFase.h"
 
 
 
@@ -44,10 +44,23 @@ private:
 
 	sf::Text mostraVida;
 	sf::Font* fonte;
+
+	bool noMenu;
+	bool naPrimeiraFase;
+	bool naSegundaFase;
+
+	PrimeiraFase fase1;
 public:
 	Jogo();
 	~Jogo();
 	Lists::ListaEntidades* getPersonagens();
 	Lists::ListaEntidades* getEstaticas();
 	void Executar();
+
+
+	void setnoMenu(bool nomenu) { noMenu = nomenu; }
+	bool getnoMenu() { return noMenu; }
+
+	void setnaPrimeiraFase(bool nafase) { naPrimeiraFase = nafase; }
+	bool getnaPrimeiraFase() { return naPrimeiraFase; }
 };

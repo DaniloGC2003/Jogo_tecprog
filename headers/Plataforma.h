@@ -6,8 +6,8 @@ namespace Entities {
 	{
 	private:
 	public:
-		Plataforma(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
+		Plataforma(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
 		Plataforma();
-		Plataforma();
+		~Plataforma();
 	};
 }

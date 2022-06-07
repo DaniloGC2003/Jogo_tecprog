@@ -27,7 +27,9 @@ public:
     Texto* getTitulo() { return &titulo; }
     void selecionaCima();
     void selecionaBaixo();
-    void seleciona();
+    int seleciona();
     void executar();
+
+    int getSelecionado() { return cont; };
 };
 

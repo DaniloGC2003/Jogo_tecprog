@@ -35,11 +35,11 @@ namespace Entities
 				Entidade* pEnt;
 				if (olhandoParaDireita)//cria projetil
 				{
-					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf(), true, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Fishbarrel4.png", 30));
+					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() + 50, getPos().getY()), getAnimacao()->getpGraf(), true, "texturas_e_fontes/Bullet1.png", 30));
 				}
 				else
 				{
-					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() - 50, getPos().getY()), getAnimacao()->getpGraf(), false, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Fishbarrel4.png", 30));
+					pEnt = static_cast<Entidade*>(new Projetil(pJogador, pColisoes, coordenadas::vetorfloat(getPos().getX() - 50, getPos().getY()), getAnimacao()->getpGraf(), false, "texturas_e_fontes/Bullet1.png", 30));
 				}
 				pColisoes->getpProjeteis()->pushEntidade(pEnt);
 			}

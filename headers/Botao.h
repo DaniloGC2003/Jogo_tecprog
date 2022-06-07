@@ -11,6 +11,7 @@ private:
 	sf::Texture* texturapadrao; //textura para o botão não selecionado
 	sf::Texture* texturaselecionada; // textura para o botão selecionado
 
+	bool selecionado;
 public:
 
 	Botao(coordenadas::vetorfloat pos = coordenadas::vetorfloat(0, 0), Gerenciadores::Gerenciador_grafico* pGraf= nullptr, std::string info = "", const char* Pathtexturapadrao="");
@@ -20,5 +21,7 @@ public:
 	void setTexto(Texto* t) { text = *t; }
 	void seleciona(const bool selecionado);
 	void render();
+
+	bool getSelecionado() { return selecionado; }
 };
 

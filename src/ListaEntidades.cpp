@@ -30,4 +30,12 @@ namespace Lists
 		return Entidades.getlen();
 	}
 
+	void ListaEntidades::percorrer()
+	{
+		for (int i = 0; i < getTamanho(); i++)
+		{
+			getEntidade(i)->executar();
+		}
+	}
+
 }

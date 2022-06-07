@@ -4,10 +4,11 @@ Botao::Botao(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pG
     Ente(pos,pGraf,Pathtexturapadrao),
     texturapadrao(nullptr),
     text(pos,pGraf,info),
-    texturaselecionada(nullptr) {
+    texturaselecionada(nullptr),
+    selecionado(false) {
 
-    texturapadrao = getAnimacao()->getpGraf()->carregaTextura("C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/assets/Button/Default.png");
-    texturaselecionada = getAnimacao()->getpGraf()->carregaTextura("C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/assets/Button/Selected.png");
+    texturapadrao = getAnimacao()->getpGraf()->carregaTextura("texturas_e_fontes/Default.png");
+    texturaselecionada = getAnimacao()->getpGraf()->carregaTextura("texturas_e_fontes/Selected.png");
 
     getAnimacao()->getCorpo()->setSize(sf::Vector2f(300, 80));
     
@@ -18,7 +19,7 @@ Botao::Botao(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pG
    // getAnimacao()->getCorpo()->setTexture(texturapadrao);
 
     sf::Font* fonte;
-    fonte = pGraf->carregaFonte("C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/MainFont.ttf");
+    fonte = pGraf->carregaFonte("texturas_e_fontes/Pixellari.ttf");
 
     text.setFontSize(30);
 
@@ -41,9 +42,15 @@ Botao::~Botao() {
 void Botao::seleciona(const bool selecionado) {
 
     if (selecionado)
+    {
         getAnimacao()->getCorpo()->setTexture(texturaselecionada);
+        this->selecionado = true;
+    }
     else
+    {
         getAnimacao()->getCorpo()->setTexture(texturapadrao);
+        this->selecionado = false;
+    }
 }
 
 void Botao::render() {

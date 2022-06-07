@@ -1,13 +1,15 @@
 #include "../headers/Jogo.h"
 
 Jogo::Jogo() : camera(sf::Vector2f(0.f, 0.f), sf::Vector2f(960.f, 540.f)), grafico(), colisoes(&personagens, &estaticas, &projeteis),
-jogador(coordenadas::vetorfloat(101.f, 110.f), grafico.getInstance(), colisoes.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Woodcutter.png"),
-agua(coordenadas::vetorfloat(300.f, 300.f), grafico.getInstance(), colisoes.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/Water.png"),
-background(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/tile15.png"),
-barril(coordenadas::vetorfloat(150.f, 265.f), grafico.getInstance(), colisoes.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Fishbarrel4.png"),
-tartaruga(coordenadas::vetorfloat(300.f, 110.f), grafico.getInstance(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Battle_turtle.png", &jogador, colisoes.getInstance()),
+jogador(coordenadas::vetorfloat(101.f, 110.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/Woodcutter.png"),
+agua(coordenadas::vetorfloat(300.f, 300.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/agua.jpg"),
+background(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile15.png"),
+barril(coordenadas::vetorfloat(150.f, 265.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/Fishbarrel4.png"),
+tartaruga(coordenadas::vetorfloat(300.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Battle_turtle.png", &jogador, colisoes.getInstance()),
 mostraVida(), fonte(),
-menu(coordenadas::vetorfloat(0.f,0.f),grafico.getInstance(),"C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Background.png")
+menu(coordenadas::vetorfloat(0.f,0.f),grafico.getInstance(),"texturas_e_fontes/game_background_4.png"),
+noMenu(true), naPrimeiraFase(false), naSegundaFase(false),
+fase1(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile15.png")
 {
 
     background.getAnimacao()->mudaEscala(500.f, 500.f);
@@ -28,7 +30,7 @@ menu(coordenadas::vetorfloat(0.f,0.f),grafico.getInstance(),"C:/Users/eduar/Docu
     //personagens.pushEntidade(pEnt);
 
 
-    fonte = grafico.carregaFonte("C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Pixellari.ttf");
+    fonte = grafico.carregaFonte("texturas_e_fontes/Pixellari.ttf");
     mostraVida.setFont(*fonte);
     mostraVida.setFillColor(sf::Color::Black);
 
@@ -67,22 +69,35 @@ void Jogo::Executar()
             if (event.type == sf::Event::Closed)
                 grafico.getJanela()->close();
 
-            menu.selecionaBaixo();
-            menu.selecionaCima();
+            if (noMenu)
+            {
+                menu.selecionaBaixo();
+                menu.selecionaCima();
+                if (menu.seleciona() == 0)
+                {
+                    noMenu = false;
+                    naPrimeiraFase = true;
+                }
+                //fazer if pra fase 2 e leaderboard
+            }
+
         }
 
         
-        //tempo = relogio.getElapsedTime().asMilliseconds() - tempo;
-
         grafico.getJanela()->clear();
-
-        menu.executar();
-        
+        if (noMenu)
+        {
+            menu.executar();
+        }
+        if (naPrimeiraFase)
+        {
+            fase1.executar();
+        }
         //background.render();
 
         
        
-        colisoes.colidir();//(&personagens, &estaticas);
+        //colisoes.colidir();//(&personagens, &estaticas);
         /*
         for (int i = 0; i < personagens.getTamanho(); i++)
         {

@@ -1,8 +1,10 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <time.h>
 #include "../headers/Jogo.h"
 int main()
 {
+    srand(time(NULL));
     Jogo jogo;
     return 0;
 }
