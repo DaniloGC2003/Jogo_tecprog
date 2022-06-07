@@ -39,19 +39,3 @@ Fase::~Fase()
 		estaticas.deleteEntidade(estaticas.getEntidade(estaticas.getTamanho() - 1));
 	}
 }
-
-void Fase::executar()
-{
-	getAnimacao()->render();//background
-
-	Colisoes.colidir();
-
-	personagens.percorrer();
-	estaticas.percorrer();
-	projeteis.percorrer();
-
-	//HP.render();
-
-	getAnimacao()->getpGraf()->getJanela()->setView(camera);
-	camera.setCenter(jogador.getPos().getX(), jogador.getPos().getY());
-}

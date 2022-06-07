@@ -1,61 +1,16 @@
 #include "../headers/Jogo.h"
 
-Jogo::Jogo() : camera(sf::Vector2f(0.f, 0.f), sf::Vector2f(960.f, 540.f)), grafico(), colisoes(&personagens, &estaticas, &projeteis),
-jogador(coordenadas::vetorfloat(101.f, 110.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/Woodcutter.png"),
-agua(coordenadas::vetorfloat(300.f, 300.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/agua.jpg"),
-background(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile15.png"),
-barril(coordenadas::vetorfloat(150.f, 265.f), grafico.getInstance(), colisoes.getInstance(), "texturas_e_fontes/Fishbarrel4.png"),
-tartaruga(coordenadas::vetorfloat(300.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Battle_turtle.png", &jogador, colisoes.getInstance()),
-mostraVida(), fonte(),
+Jogo::Jogo() : camera(sf::Vector2f(480.f, 270.f), sf::Vector2f(960.f, 540.f)), grafico(),
 menu(coordenadas::vetorfloat(0.f,0.f),grafico.getInstance(),"texturas_e_fontes/game_background_4.png"),
 noMenu(true), naPrimeiraFase(false), naSegundaFase(false),
 fase1(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile15.png")
-{
-
-    background.getAnimacao()->mudaEscala(500.f, 500.f);
-
-    personagens.pushEntidade(static_cast<Entities::Entidade*>(& jogador));
-    personagens.pushEntidade(static_cast<Entities::Entidade*>(&tartaruga));
-
-    agua.getAnimacao()->mudaEscala(50.0f, 1.0f);
-    estaticas.pushEntidade(&agua);
-
-    estaticas.pushEntidade(&barril);
-    
-    
-
-    //Entities::Entidade* pEnt = static_cast<Entities::Entidade*>(new Entities::Tartaruga(coordenadas::vetorfloat(600.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Battle_turtle.png", &jogador, &colisoes));
-    //personagens.pushEntidade(pEnt);
-   // pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(550.f, 110.f), grafico.getInstance(), "texturas_e_fontes/Monstro.png", &jogador, &colisoes));
-    //personagens.pushEntidade(pEnt);
-
-
-    fonte = grafico.carregaFonte("texturas_e_fontes/Pixellari.ttf");
-    mostraVida.setFont(*fonte);
-    mostraVida.setFillColor(sf::Color::Black);
-
-
-    //Entities::Personagem* pPers = new Entities::Personagem(coordenadas::vetorfloat(350.f, 350.f), graficos.getInstance(), "Woodcutter.png", coordenadas::vetorfloat(0.1f, 0.1f));
-    //personagens.pushEntidade(static_cast<Entities::Entidade*>(pPers));
-
+{   
     Executar();
-    
-
 }
 
 Jogo::~Jogo()
 {
     
-}
-
-Lists::ListaEntidades* Jogo::getPersonagens()
-{
-    return &personagens;
-}
-
-Lists::ListaEntidades* Jogo::getEstaticas()
-{
-    return &estaticas;
 }
 
 void Jogo::Executar()
@@ -78,6 +33,7 @@ void Jogo::Executar()
                     noMenu = false;
                     naPrimeiraFase = true;
                 }
+
                 //fazer if pra fase 2 e leaderboard
             }
 
@@ -92,6 +48,12 @@ void Jogo::Executar()
         if (naPrimeiraFase)
         {
             fase1.executar();
+            if (!fase1.jogoAtivo())
+            {
+                noMenu = true;
+                naPrimeiraFase = false;
+                grafico.getJanela()->setView(camera);
+            }
         }
         //background.render();
 

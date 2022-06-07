@@ -25,19 +25,10 @@
 class Jogo
 {
 private:
-	sf::Clock relogio;
-	Gerenciadores::Gerenciador_grafico grafico;
-	Gerenciadores::Gerenciador_colisoes colisoes;
 	sf::View camera;
-	Lists::ListaEntidades personagens;
-	Lists::ListaEntidades estaticas;
-	Lists::ListaEntidades projeteis;
 
-	Entities::Jogador jogador;
-	Entities::Agua agua;
-	Entities::Ente background;
-	Entities::Barril barril;
-	Entities::Tartaruga tartaruga;
+	Gerenciadores::Gerenciador_grafico grafico;
+
 
 	Menu menu;
 	

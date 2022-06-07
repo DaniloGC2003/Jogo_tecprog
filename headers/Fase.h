@@ -28,7 +28,7 @@ public:
 	Fase();
 	~Fase();
 
-	virtual void executar();
+	virtual void executar() = 0;
 };
 
 
