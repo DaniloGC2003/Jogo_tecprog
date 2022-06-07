@@ -6,6 +6,7 @@
 #include "Entidade.h"
 #include "Jogador.h"
 //referencia para construir essa classe: https://www.youtube.com/watch?v=l2iCYCLi6MU&t=239s&ab_channel=HilzeVonck
+
 namespace Gerenciadores
 {
 	class Gerenciador_colisoes

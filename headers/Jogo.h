@@ -17,6 +17,11 @@
 #include "Barril.h"
 #include "Monstro.h"
 #include "Tartaruga.h"
+#include "Menu.h"
+
+
+
+
 class Jogo
 {
 private:
@@ -33,6 +38,9 @@ private:
 	Entities::Ente background;
 	Entities::Barril barril;
 	Entities::Tartaruga tartaruga;
+
+	Menu menu;
+	
 
 	sf::Text mostraVida;
 	sf::Font* fonte;
