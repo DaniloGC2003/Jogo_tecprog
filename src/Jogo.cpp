@@ -32,6 +32,7 @@ void Jogo::Executar()
                 {
                     noMenu = false;
                     naPrimeiraFase = true;
+                    fase1.inicializaFase();
                 }
 
                 //fazer if pra fase 2 e leaderboard

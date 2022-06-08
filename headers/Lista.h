@@ -65,9 +65,33 @@ namespace Lists
 				pUltimo = tempAnt;
 			}
 			else { //Eliminando elemento do meio da lista
-				temp->setpProx(temp->getpProx());
+				tempAnt->setpProx(temp->getpProx());
 			}
 			delete temp;
+			len--;
+		}
+
+		void remove(TL* info) {
+
+			Elemento<TL>* temp = pPrimeiro;
+			Elemento<TL>* tempAnt = nullptr;
+
+			while (temp->getpInfo() != info) {
+
+				tempAnt = temp;
+				temp = temp->getpProx();
+			}
+			if (temp == pPrimeiro) {// Eliminando o primeiro elemento da lista
+				pPrimeiro = temp->getpProx();
+			}
+			else if (temp == pUltimo) {//Eliminando o ultimo elemento da lista
+				tempAnt->setpProx(nullptr);
+				pUltimo = tempAnt;
+			}
+			else { //Eliminando elemento do meio da lista
+
+				tempAnt->setpProx(temp->getpProx());
+			}
 			len--;
 		}
 	};

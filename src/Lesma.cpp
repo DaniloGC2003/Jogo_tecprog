@@ -48,7 +48,7 @@ namespace Entities
 		getAnimacao()->render();
 		if (flagEliminado)//se flag tiver valor true, lesma sera deletada
 		{
-			pColisoes->getpPersonagens()->deleteEntidade(static_cast<Entidade*>(this)) ;
+			pColisoes->getpPersonagens()->removeEntidade(static_cast<Entidade*>(this));
 		}
 
 	}

@@ -8,6 +8,8 @@
 #include "Tartaruga.h"
 #include "Lesma.h"
 #include "Monstro.h"
+#include "Barril.h"
+#include "Lago.h"
 class Fase :
 	public Entities::Ente
 {
@@ -27,7 +29,7 @@ public:
 	Fase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
 	Fase();
 	~Fase();
-
+	virtual void inicializaFase() = 0;
 	virtual void executar() = 0;
 };
 

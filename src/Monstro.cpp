@@ -19,7 +19,7 @@ namespace Entities
 		bool flagEliminado = false;
 		coordenadas::vetorfloat vetVel(0.f, (float)GRAVITY);
 		float distancia = pJogador->getPos().getX() - getPos().getX();
-		if (fabs(distancia) < 200.f)//se a distancia entre inimigo e jogador for menmor que 200
+		if (fabs(distancia) < 300.f)//se a distancia entre inimigo e jogador for menmor que 300
 		{
 			if (distancia > 0.f)
 				vetVel += coordenadas::vetorfloat((float)SPEED_MONSTRO, 0.f);
@@ -42,7 +42,7 @@ namespace Entities
 		getAnimacao()->render();
 		if (flagEliminado)//se flag tiver valor true, monstro sera deletado
 		{
-			pColisoes->getpPersonagens()->deleteEntidade(this);
+			pColisoes->getpPersonagens()->removeEntidade(static_cast<Entidade*>(this));
 		}
 	}
 

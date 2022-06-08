@@ -38,4 +38,9 @@ namespace Lists
 		}
 	}
 
+	void ListaEntidades::removeEntidade(Entities::Entidade* Ent)
+	{
+		Entidades.remove(Ent);
+	}
+
 }

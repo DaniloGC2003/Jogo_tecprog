@@ -67,7 +67,7 @@ namespace Entities
 
 		if (flagEliminado)//se flag for true, tartaruga sera deletada
 		{
-			pColisoes->getpPersonagens()->deleteEntidade(static_cast<Entidade*>(this));
+			pColisoes->getpPersonagens()->removeEntidade(static_cast<Entidade*>(this));
 		}
 
 	}
