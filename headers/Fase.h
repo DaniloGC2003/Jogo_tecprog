@@ -10,6 +10,7 @@
 #include "Monstro.h"
 #include "Barril.h"
 #include "Lago.h"
+#include "Agua.h"
 class Fase :
 	public Entities::Ente
 {
@@ -31,6 +32,7 @@ public:
 	~Fase();
 	virtual void inicializaFase() = 0;
 	virtual void executar() = 0;
+	virtual bool jogoAtivo() = 0;
 };
 
 

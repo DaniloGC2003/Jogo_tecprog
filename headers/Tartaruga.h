@@ -1,7 +1,7 @@
 #pragma once
 #include "Inimigo.h"
 #include "Projetil.h"
-#define VEL_TARTARUGA 0.15
+#define VEL_TARTARUGA 0.05
 #define COOLDOWN_TIRO 180
 namespace Entities
 {

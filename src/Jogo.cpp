@@ -3,7 +3,8 @@
 Jogo::Jogo() : camera(sf::Vector2f(480.f, 270.f), sf::Vector2f(960.f, 540.f)), grafico(),
 menu(coordenadas::vetorfloat(0.f,0.f),grafico.getInstance(),"texturas_e_fontes/game_background_4.png"),
 noMenu(true), naPrimeiraFase(false), naSegundaFase(false),
-fase1(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile15.png")
+fase1(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile15.png"),
+fase2(coordenadas::vetorfloat(0.f, 0.f), grafico.getInstance(), "texturas_e_fontes/tile11.png")
 {   
     Executar();
 }
@@ -34,6 +35,12 @@ void Jogo::Executar()
                     naPrimeiraFase = true;
                     fase1.inicializaFase();
                 }
+                if (menu.seleciona() == 1)
+                {
+                    noMenu = false;
+                    naSegundaFase = true;
+                    fase2.inicializaFase();
+                }
 
                 //fazer if pra fase 2 e leaderboard
             }
@@ -53,6 +60,16 @@ void Jogo::Executar()
             {
                 noMenu = true;
                 naPrimeiraFase = false;
+                grafico.getJanela()->setView(camera);
+            }
+        }
+        if (naSegundaFase)
+        {
+            fase2.executar();
+            if (!fase2.jogoAtivo())
+            {
+                noMenu = true;
+                naSegundaFase = false;
                 grafico.getJanela()->setView(camera);
             }
         }

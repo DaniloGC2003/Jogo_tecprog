@@ -7,19 +7,9 @@
 #include "ListaEntidades.h"
 #include "Entidade.h"
 #include "Gerenciador_colisoes.h"
-#include "Personagem.h"
-#include "Jogador.h"
-#include "Ente.h"
-#include "Obstaculo.h"
-#include "Agua.h"
-#include "Inimigo.h"
-#include "Lesma.h"
-#include "Barril.h"
-#include "Monstro.h"
-#include "Tartaruga.h"
 #include "Menu.h"
 #include "PrimeiraFase.h"
-
+#include "SegundaFase.h"
 
 
 class Jogo
@@ -41,6 +31,8 @@ private:
 	bool naSegundaFase;
 
 	PrimeiraFase fase1;
+	SegundaFase fase2;
+
 public:
 	Jogo();
 	~Jogo();
