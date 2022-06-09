@@ -1,7 +1,7 @@
 #include "../headers/Gerenciador_grafico.h"
 namespace Gerenciadores
 {
-    Gerenciador_grafico::Gerenciador_grafico() : janela(sf::VideoMode(960, 540), "JOGO"), mapaTexturas(),
+    Gerenciador_grafico::Gerenciador_grafico() : janela(sf::VideoMode(960, 540), "TIMBERMAN"), mapaTexturas(),
     mapaFontes() 
     {
 

@@ -21,20 +21,6 @@ PrimeiraFase::PrimeiraFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciad
 	plataforma1(coordenadas::vetorfloat(500.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png")
 {
 
-	personagens.pushEntidade(&lesma1);
-	personagens.pushEntidade(&lesma2);
-	personagens.pushEntidade(&lesma3);
-	if (numLesmas > 3)
-	{
-		personagens.pushEntidade(&lesma4);
-	}
-	personagens.pushEntidade(&monstro1);
-	personagens.pushEntidade(&monstro2);
-	personagens.pushEntidade(&monstro3);
-	if (numMonstros > 3)
-	{
-		personagens.pushEntidade(&monstro4);
-	}
 	estaticas.pushEntidade(&barril1);
 	estaticas.pushEntidade(&barril2);
 	estaticas.pushEntidade(&barril3);
@@ -52,6 +38,8 @@ PrimeiraFase::PrimeiraFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciad
 
 	plataforma1.getAnimacao()->mudaEscala(10.f, 0.8f);
 	estaticas.pushEntidade(&plataforma1);
+	
+	inicializaFase();
 }
 
 PrimeiraFase::PrimeiraFase() : Fase(), numLesmas(0), numMonstros(0), numBarris(0), numLagos(0)
@@ -100,7 +88,6 @@ void PrimeiraFase::inicializaFase()
 		monstro1.mudarPos(coordenadas::vetorfloat(3000.f, 110.f));
 		personagens.pushEntidade(&monstro1);
 	}
-	
 }
 
 void PrimeiraFase::executar()

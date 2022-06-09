@@ -22,7 +22,7 @@ Menu::Menu(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGra
     bt = new Botao(coordenadas::vetorfloat(960 / 2.0f, 180 + 300),pGraf, "EXIT GAME", "texturas_e_fontes/Default.png");
     vectordeBotoes.push_back(bt);
     
-    bt = new Botao(coordenadas::vetorfloat(960 / 2.0f, 50), pGraf, "JOGO", "texturas_e_fontes/Default.png");
+    bt = new Botao(coordenadas::vetorfloat(960 / 2.0f, 50), pGraf, "TIMBERMAN", "texturas_e_fontes/Default.png");
     vectordeBotoes.push_back(bt);
 
     
