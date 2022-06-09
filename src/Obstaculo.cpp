@@ -12,3 +12,8 @@ Entities::Obstaculo::Obstaculo() : Entidade()
 Entities::Obstaculo::~Obstaculo()
 {
 }
+
+void Entities::Obstaculo::executar()
+{
+	getAnimacao()->render();
+}

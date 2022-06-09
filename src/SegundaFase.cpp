@@ -14,10 +14,10 @@ SegundaFase::SegundaFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador
 	barril2(coordenadas::vetorfloat(950.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
 	barril3(coordenadas::vetorfloat(1600.f, 65.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
 	barril4(coordenadas::vetorfloat(2440.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	agua1(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
-	agua2(coordenadas::vetorfloat(800.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
-	agua3(coordenadas::vetorfloat(1450.f, 90.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
-	agua4(coordenadas::vetorfloat(2600.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
+	agua1(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
+	agua2(coordenadas::vetorfloat(800.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
+	agua3(coordenadas::vetorfloat(1450.f, 90.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
+	agua4(coordenadas::vetorfloat(2600.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
 	tartaruga(coordenadas::vetorfloat(3850.f, 110.f),getAnimacao()->getpGraf(), "texturas_e_fontes/Battle_turtle.png", &jogador, &Colisoes, 500),
 	plataforma1(coordenadas::vetorfloat(950.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png"),
 	plataforma2(coordenadas::vetorfloat(1600.f, 100.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png"),
@@ -118,6 +118,7 @@ void SegundaFase::executar()
 	{
 		jogador.setVida(0);
 	}
+	std::cout << jogador.getVida() << std::endl;
 }
 
 bool SegundaFase::jogoAtivo()
