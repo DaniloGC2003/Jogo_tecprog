@@ -2,23 +2,23 @@
 
 PrimeiraFase::PrimeiraFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho):
 	Fase(pos, pGraf, caminho), numLesmas(rand() % 2 + 3), numMonstros(rand() % 2 + 3), numBarris(rand() % 2 + 3), numLagos(rand() % 2 + 3),	//cada entidade pode ter de 3 a 4 instancias
-	lesma1(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	lesma2(coordenadas::vetorfloat(780.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	lesma3(coordenadas::vetorfloat(1050.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	lesma4(coordenadas::vetorfloat(1450.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	monstro1(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	monstro2(coordenadas::vetorfloat(2000.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	monstro3(coordenadas::vetorfloat(2500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	monstro4(coordenadas::vetorfloat(3000.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	barril1(coordenadas::vetorfloat(100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	barril2(coordenadas::vetorfloat(1100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	barril3(coordenadas::vetorfloat(2100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	barril4(coordenadas::vetorfloat(3100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	lago1(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
-	lago2(coordenadas::vetorfloat(1300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
-	lago3(coordenadas::vetorfloat(2300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
-	lago4(coordenadas::vetorfloat(3300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png"),
-	plataforma1(coordenadas::vetorfloat(500.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png")
+	lesma1(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
+	lesma2(coordenadas::vetorfloat(780.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
+	lesma3(coordenadas::vetorfloat(1050.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
+	lesma4(coordenadas::vetorfloat(1450.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
+	monstro1(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
+	monstro2(coordenadas::vetorfloat(2000.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
+	monstro3(coordenadas::vetorfloat(2500.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
+	monstro4(coordenadas::vetorfloat(3000.f, 110.f), getAnimacao()->getpGraf(), "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
+	barril1(coordenadas::vetorfloat(100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Fishbarrel4.png"),
+	barril2(coordenadas::vetorfloat(1100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Fishbarrel4.png"),
+	barril3(coordenadas::vetorfloat(2100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Fishbarrel4.png"),
+	barril4(coordenadas::vetorfloat(3100.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Fishbarrel4.png"),
+	lago1(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Water.png"),
+	lago2(coordenadas::vetorfloat(1300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Water.png"),
+	lago3(coordenadas::vetorfloat(2300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Water.png"),
+	lago4(coordenadas::vetorfloat(3300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/Water.png"),
+	plataforma1(coordenadas::vetorfloat(500.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "C:/Users/eduar/Documents/Técnicas de Programação/Jogo_Tec_Prog/github_jogo/texturas_e_fontes/preview.png")
 {
 
 	estaticas.pushEntidade(&barril1);
@@ -99,9 +99,10 @@ void PrimeiraFase::executar()
 	personagens.percorrer();
 	estaticas.percorrer();
 	projeteis.percorrer();
+	
 
-	//HP.render();
-
+	mostraVidaJogador();
+	
 	getAnimacao()->getpGraf()->getJanela()->setView(camera);
 	camera.setCenter(jogador.getPos().getX(), jogador.getPos().getY());
 }

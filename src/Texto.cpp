@@ -6,11 +6,14 @@ Texto::Texto(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pG
 	Ente(),
 	info(info) {
 
+	getAnimacao()->setGerenciadorGrafico(pGraf);
+	
 	texto.setString(info);
 	texto.setCharacterSize(24);
 	setAlinhamento(AlinhamentoTexto::centro);
 	texto.setPosition(sf::Vector2f(pos.getX(), pos.getY()));
 	texto.setFillColor(sf::Color::Black);
+	getAnimacao()->setGerenciadorGrafico(pGraf);
 
 }
 
@@ -73,6 +76,7 @@ coordenadas::vetorfloat Texto::getSize() const {
 void Texto::render() {
 
 	getAnimacao()->getpGraf()->desenhar(&texto);
+	
 }
 
 std::string Texto::getInfo() const {
