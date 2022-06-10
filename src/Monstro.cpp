@@ -28,8 +28,8 @@ namespace Entities
 		}
 		if (pColisoes->verifica_colisao(pJogador, this))
 		{
-			if (pJogador->getVida() > 25)
-				pJogador->setVida(pJogador->getVida() - DANO_MONSTRO);
+			if (pJogador->getVida() > DANO_MONSTRO)
+				pJogador->tomaDano(DANO_MONSTRO);
 			else
 				pJogador->setVida(0);
 			flagEliminado = true;

@@ -28,9 +28,10 @@ namespace Entities
 		}
 		if (pColisoes->verifica_colisao(pJogador, static_cast<Entidade*>(this)))
 		{//se ha colisao, jogador sofre dano
-			if (pJogador->getVida() > 25)
+			if (pJogador->getVida() > DANO_LESMA)
 			{
-				pJogador->setVida(pJogador->getVida() - DANO_LESMA);
+				pJogador->tomaDano(DANO_LESMA);
+				printf("DANO\n");
 			}
 			else
 			{

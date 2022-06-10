@@ -23,6 +23,7 @@ SegundaFase::SegundaFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador
 	plataforma2(coordenadas::vetorfloat(1600.f, 100.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png"),
 	plataforma3(coordenadas::vetorfloat(3400.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png")
 {
+
 	plataforma.mudarPos(coordenadas::vetorfloat(50.f, 300.f));
 	plataforma.getAnimacao()->mudaEscala(0.09f, 1.f);
 
@@ -111,6 +112,8 @@ void SegundaFase::executar()
 	estaticas.percorrer();
 	projeteis.percorrer();
 
+	mostraVidaJogador();
+
 	getAnimacao()->getpGraf()->getJanela()->setView(camera);
 	camera.setCenter(jogador.getPos().getX(), jogador.getPos().getY());
 
@@ -118,7 +121,6 @@ void SegundaFase::executar()
 	{
 		jogador.setVida(0);
 	}
-	std::cout << jogador.getVida() << std::endl;
 }
 
 bool SegundaFase::jogoAtivo()
