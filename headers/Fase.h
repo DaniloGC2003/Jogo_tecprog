@@ -26,14 +26,16 @@ protected:
 	Entities::Plataforma plataforma;
 
 	Texto HP;
+
 public:
 	Fase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
 	Fase();
 	~Fase();
+
+	void mostraVidaJogador();
 	virtual void inicializaFase() = 0;
 	virtual void executar() = 0;
 	virtual bool jogoAtivo() = 0;
-	void mostraVidaJogador();
 };
 
 
