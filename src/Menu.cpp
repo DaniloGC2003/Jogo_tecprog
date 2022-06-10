@@ -101,17 +101,14 @@ int Menu::seleciona() {
     {
         if (vectordeBotoes[0]->getSelecionado())
         {
-            printf("fase 1\n");
             return 0;
         }
         if (vectordeBotoes[1]->getSelecionado())
         {
-            printf("fase 2\n");
             return 1;
         }
         if (vectordeBotoes[2]->getSelecionado())
         {
-            printf("leaderboard\n");
             return 2;
         }
         if (vectordeBotoes[3]->getSelecionado())

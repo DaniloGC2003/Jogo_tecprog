@@ -31,7 +31,6 @@ namespace Entities
 			if (pJogador->getVida() > DANO_LESMA)
 			{
 				pJogador->tomaDano(DANO_LESMA);
-				printf("DANO\n");
 			}
 			else
 			{
