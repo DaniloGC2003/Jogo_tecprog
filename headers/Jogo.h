@@ -36,14 +36,5 @@ private:
 public:
 	Jogo();
 	~Jogo();
-	Lists::ListaEntidades* getPersonagens();
-	Lists::ListaEntidades* getEstaticas();
 	void Executar();
-
-
-	void setnoMenu(bool nomenu) { noMenu = nomenu; }
-	bool getnoMenu() { return noMenu; }
-
-	void setnaPrimeiraFase(bool nafase) { naPrimeiraFase = nafase; }
-	bool getnaPrimeiraFase() { return naPrimeiraFase; }
 };

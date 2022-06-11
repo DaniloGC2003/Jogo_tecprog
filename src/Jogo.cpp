@@ -41,8 +41,6 @@ void Jogo::Executar()
                     naSegundaFase = true;
                     fase2.inicializaFase();
                 }
-
-                //fazer if pra fase 2 e leaderboard
             }
 
         }
@@ -73,39 +71,7 @@ void Jogo::Executar()
                 grafico.getJanela()->setView(camera);
             }
         }
-        //background.render();
 
-        
-       
-        //colisoes.colidir();//(&personagens, &estaticas);
-        /*
-        for (int i = 0; i < personagens.getTamanho(); i++)
-        {
-            personagens.getEntidade(i)->executar();
-        }
-
-        for (int i = 0; i < estaticas.getTamanho(); i++)
-        {
-            
-            estaticas.getEntidade(i)->executar();
-        }
-
-        for (int i = 0; i < projeteis.getTamanho(); i++)
-        {
-            projeteis.getEntidade(i)->executar();
-        }
-
-        char hp[15] = "HP: ";
-        char vidaJogador[10];
-        _itoa_s(jogador.getVida(), vidaJogador, 10);
-        strcat_s(hp, vidaJogador);
-        mostraVida.setPosition(jogador.getPos().getX()-250, jogador.getPos().getY()-250);
-        mostraVida.setString(hp);
-        grafico.desenhar(&mostraVida);
-
-        grafico.getJanela()->setView(camera);
-        camera.setCenter(sf::Vector2f(jogador.getPosicao().getX(), jogador.getPosicao().getY()));
-        */
         grafico.getJanela()->display();
     }
 }

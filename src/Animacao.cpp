@@ -5,7 +5,7 @@ namespace Animation
         pGraf(pGraf), textura(pGraf->carregaTextura(caminho)), corpo()
          
     {
-        //inicializa origem, tectura, tamanho e posicao
+        //inicializa origem, textura, tamanho e posicao
         corpo.setTexture(textura);
         corpo.setSize(sf::Vector2f(textura->getSize().x, textura->getSize().y));
         corpo.setOrigin(corpo.getSize().x / 2.f, corpo.getSize().y / 2.f);

@@ -7,14 +7,6 @@ Fase::Fase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGra
 	plataforma(coordenadas::vetorfloat(1000.f, 300.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png"),
 	HP(coordenadas::vetorfloat(0.f, 0.f), getAnimacao()->getpGraf(), "HP: ", "texturas_e_fontes/Pixellari.ttf")
 {
-	/*sf::Font* fonte;
-	HP.setTextoInfo("NOME");
-	HP.setFontSize(50);
-	HP.setTextColor(77.6, 68.2, 44.3);
-	HP.setAlinhamento(AlinhamentoTexto::centro);
-	fonte = pGraf->carregaFonte("texturas_e_fontes/Pixellari.ttf");
-	HP.setFonte(fonte);
-	HP.setPosicao(coordenadas::vetorfloat(300, 100));*/
 
 	sf::Font* fonte;
 	fonte = pGraf->carregaFonte("texturas_e_fontes/Pixellari.ttf");
@@ -43,14 +35,6 @@ Fase::Fase() : Entities::Ente()
 
 Fase::~Fase()
 {
-	/*while (personagens.getTamanho() > 0)
-	{
-		personagens.deleteEntidade(personagens.getEntidade(personagens.getTamanho() - 1));
-	}
-	while (estaticas.getTamanho() > 0)
-	{
-		estaticas.deleteEntidade(estaticas.getEntidade(estaticas.getTamanho() - 1));
-	}*/
 }
 
 void Fase::mostraVidaJogador()

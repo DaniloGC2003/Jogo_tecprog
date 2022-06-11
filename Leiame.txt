@@ -1,5 +1,6 @@
 Esse projeto foi produzido como trabalho para a disciplina de Técnicas de Programação, da UTFPR, ministrada pelo professor Jean Marcelo Simão.
-O jogo foi desenvolvido na linguagem de programação C++, e a IDE de escolha foi o Visual Studio, versão de 2022. Quanto à biblioteca gráfica, foi utilizada a SFML.
+O jogo foi desenvolvido na linguagem de programação C++, e a IDE de escolha foi o Visual Studio, versão de 2022. Quanto à biblioteca gráfica, foi utilizada a SFML, versão 32 bits 2.5.1.
+
 
 Referências utilizadas para compor o trabalho:
     Matheus Burda, ex-monitor de Técnicas de Programação (canal: https://www.youtube.com/channel/UCrNDrGwDXmBErjp0BGqqOUw/featured)
@@ -7,12 +8,16 @@ Referências utilizadas para compor o trabalho:
     Sonar Systems (canal: https://www.youtube.com/c/SonarSystemsCoUk)
     Felipe Barboza, ex-monitor de Técnicas de Programação (canal: https://www.youtube.com/channel/UCRhUp9GRJSWQM7pH--4hEVw)
     Lucas Skora, ex-monitor de Técnicas de Programação (canal: https://www.youtube.com/user/slendertataGames/videos)
+    Documentação do SFML 2.5.1 (site: https://www.sfml-dev.org/documentation/2.5.1/)
+
 
 Controles para jogar:
+
 - Para navegar no menu: 
 Setas para baixo e para cima;
-"Enter" para selecionar opção
+"Enter" para selecionar opção.
+
 - Para jogar as fases:
 "A" e "D" para movimentar o jogador;
 Barra de espaço para fazer o jogador pular;
-"E" para atirar projéteis
+"E" para atirar projéteis.

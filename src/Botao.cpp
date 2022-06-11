@@ -16,8 +16,6 @@ Botao::Botao(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pG
 
     getAnimacao()->getCorpo()->setPosition(sf::Vector2f(pos.getX(), pos.getY()));
 
-   // getAnimacao()->getCorpo()->setTexture(texturapadrao);
-
     sf::Font* fonte;
     fonte = pGraf->carregaFonte("texturas_e_fontes/Pixellari.ttf");
 
