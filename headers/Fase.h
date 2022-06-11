@@ -22,8 +22,7 @@ protected:
 	Lists::ListaEntidades estaticas;
 	Lists::ListaEntidades projeteis;
 
-	Entities::Jogador jogador;
-	Entities::Plataforma plataforma;
+	Entities::Jogador* jogador;
 
 	Texto HP;
 

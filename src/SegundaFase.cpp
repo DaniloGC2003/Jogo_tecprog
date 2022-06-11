@@ -1,105 +1,105 @@
 #include "../headers/SegundaFase.h"
 
 SegundaFase::SegundaFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho):
-	Fase(pos, pGraf, caminho), numLesmas(rand() % 2 + 3), numMonstros(rand() % 2 + 3), numBarris(rand() % 2 + 3), numAguas(rand()%2+3),
-	lesma1(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	lesma2(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	lesma3(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	lesma4(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", &jogador, &Colisoes),
-	monstro1(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	monstro2(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	monstro3(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	monstro4(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", &jogador, &Colisoes),
-	barril1(coordenadas::vetorfloat(450.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	barril2(coordenadas::vetorfloat(950.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	barril3(coordenadas::vetorfloat(1600.f, 65.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	barril4(coordenadas::vetorfloat(2440.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"),
-	agua1(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
-	agua2(coordenadas::vetorfloat(800.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
-	agua3(coordenadas::vetorfloat(1450.f, 90.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
-	agua4(coordenadas::vetorfloat(2600.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", &jogador),
-	tartaruga(coordenadas::vetorfloat(3850.f, 110.f),getAnimacao()->getpGraf(), "texturas_e_fontes/Battle_turtle.png", &jogador, &Colisoes, 500),
-	plataforma1(coordenadas::vetorfloat(950.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png"),
-	plataforma2(coordenadas::vetorfloat(1600.f, 100.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png"),
-	plataforma3(coordenadas::vetorfloat(3400.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png")
+	Fase(pos, pGraf, caminho), numLesmas(rand() % 2 + 3), numMonstros(rand() % 2 + 3), numBarris(rand() % 2 + 3), numAguas(rand()%2+3)	
 {
+	Entities::Entidade* pEnt;
 
-	plataforma.mudarPos(coordenadas::vetorfloat(50.f, 300.f));
-	plataforma.getAnimacao()->mudaEscala(0.09f, 1.f);
-
-	plataforma1.getAnimacao()->mudaEscala(10.f, 1.f);
-	estaticas.pushEntidade(&plataforma1);
-	plataforma2.getAnimacao()->mudaEscala(10.f, 1.f);
-	estaticas.pushEntidade(&plataforma2);
-	plataforma3.getAnimacao()->mudaEscala(50.f, 1.f);
-	estaticas.pushEntidade(&plataforma3);
-
-	estaticas.pushEntidade(&barril1);
-	estaticas.pushEntidade(&barril2);
-	estaticas.pushEntidade(&barril3);
+	//inicializando plataformas:
+	Entities::Plataforma* pP;
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(250.f, 300.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(10.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(950.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(10.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(1600.f, 100.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(10.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(3400.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(50.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+	
+	//inicializando barris:
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(450.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(950.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(1600.f, 65.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+	estaticas.pushEntidade(pEnt);
 	if (numBarris > 3)
 	{
-		estaticas.pushEntidade(&barril4);
+		pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(2440.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+		estaticas.pushEntidade(pEnt);
 	}
-	estaticas.pushEntidade(&agua1);
-	estaticas.pushEntidade(&agua2);
-	estaticas.pushEntidade(&agua3);
+
+	//inicializando aguas:
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(800.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(1450.f, 90.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+	estaticas.pushEntidade(pEnt);
 	if (numAguas > 3)
 	{
-		estaticas.pushEntidade(&agua4);
+		pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(2600.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+		estaticas.pushEntidade(pEnt);
 	}
 
 	inicializaFase();
 }
 
-SegundaFase::SegundaFase() : Fase(), numLesmas(0), numMonstros(0), numBarris(0), numAguas(0)
+SegundaFase::SegundaFase() : Fase(), numLesmas(0), numMonstros(0), numBarris(0), numAguas(0), tartaruga(nullptr)
 {
 }
 
 SegundaFase::~SegundaFase()
 {
+	personagens.deletatudo();
+	estaticas.deletatudo();
 }
 
 void SegundaFase::inicializaFase()
 {
-	jogador.setVida(100);
-	jogador.mudarPos(coordenadas::vetorfloat(50.f, 110.f));
+	jogador->setVida(100);
+	jogador->mudarPos(coordenadas::vetorfloat(50.f, 110.f));
 
-	lesma1.setVida(100);
-	lesma1.mudarPos(coordenadas::vetorfloat(398.f, 110.f));
-	personagens.pushEntidade(&lesma1);
-	lesma2.setVida(100);
-	lesma2.mudarPos(coordenadas::vetorfloat(1000.f, 110.f));
-	personagens.pushEntidade(&lesma2);
-	lesma3.setVida(100);
-	lesma3.mudarPos(coordenadas::vetorfloat(1150.f, 50.f));
-	personagens.pushEntidade(&lesma3);
+	while (personagens.getTamanho() > 1)
+	{
+		personagens.deleteEntidade(personagens.getEntidade(1));//deleta todos menos o jogador
+	}
+
+	Entities::Entidade* pEnt;
+
+	//inicializando lesmas:
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(398.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(1000.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(1150.f, 50.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
 	if (numLesmas > 3)
 	{
-		lesma4.setVida(100);
-		lesma4.mudarPos(coordenadas::vetorfloat(2484.f, 110.f));
-		personagens.pushEntidade(&lesma4);
+		pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(2484.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+		personagens.pushEntidade(pEnt);
 	}
 
-	monstro1.setVida(100);
-	monstro1.mudarPos(coordenadas::vetorfloat(1550.f, 50.f));
-	personagens.pushEntidade(&monstro1);
-	monstro2.setVida(100);
-	monstro2.mudarPos(coordenadas::vetorfloat(1740.f, 50.f));
-	personagens.pushEntidade(&monstro2);
-	monstro3.setVida(100);
-	monstro3.mudarPos(coordenadas::vetorfloat(2900.f, 50.f));
-	personagens.pushEntidade(&monstro3);
+	//inicializando monstros:
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(1550.f, 50.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(1740.f, 50.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(2900.f, 50.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
 	if (numMonstros > 3)
 	{
-		monstro4.setVida(100);
-		monstro4.mudarPos(coordenadas::vetorfloat(3200.f, 110.f));
-		personagens.pushEntidade(&monstro4);
+		pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(3200.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+		personagens.pushEntidade(pEnt);
 	}
 
-	tartaruga.setVida(500);
-	tartaruga.mudarPos(coordenadas::vetorfloat(3850.f, 110.f));
-	personagens.pushEntidade(&tartaruga);
+	//inicializando tartaruga:
+	tartaruga = new Entities::Tartaruga(coordenadas::vetorfloat(3850.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Battle_turtle.png", jogador, &Colisoes, 500);
+	personagens.pushEntidade(static_cast<Entities::Entidade*>(tartaruga));
 }
 
 void SegundaFase::executar()
@@ -115,18 +115,18 @@ void SegundaFase::executar()
 	mostraVidaJogador();
 
 	getAnimacao()->getpGraf()->getJanela()->setView(camera);
-	camera.setCenter(jogador.getPos().getX(), jogador.getPos().getY());
+	camera.setCenter(jogador->getPos().getX(), jogador->getPos().getY());
 
-	if (jogador.getPos().getY() > 600.f)
+	if (jogador->getPos().getY() > 600.f)
 	{
-		jogador.setVida(0);
+		jogador->setVida(0);
 	}
 }
 
 bool SegundaFase::jogoAtivo()
 {
 	//se jogador morreu ou se matou a tartaruga
-	if (jogador.getVida() == 0 || tartaruga.getVida() == 0)
+	if (jogador->getVida() == 0 || tartaruga->getVida() == 0 || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		return false;
 	}

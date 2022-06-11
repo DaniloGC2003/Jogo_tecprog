@@ -115,6 +115,14 @@ namespace Lists
 			}
 			len--;
 		}
+
+		void deletetudo()
+		{
+			while (len > 0)
+			{
+				pop(pUltimo->getpInfo());
+			}
+		}
 	};
 
 	template<class TL>
