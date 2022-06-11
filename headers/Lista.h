@@ -5,6 +5,28 @@ namespace Lists
 	template <class TL> class Lista
 	{
 	private:
+		template <class TE> class Elemento
+		{
+		private:
+			Elemento<TE>* pProx;
+			TE* pinfo;
+
+		public:
+			Elemento()
+			{
+				pProx = nullptr;
+				pinfo = nullptr;
+			}
+
+			~Elemento() { }
+
+			void setpProx(Elemento<TE>* pProx) { this->pProx = pProx; }
+			void setpInfo(TE* pinfo) { this->pinfo = pinfo; }
+
+			Elemento<TE>* getpProx() { return pProx; }
+			TE* getpInfo() { return pinfo; }
+		};
+
 		Elemento<TL>* pPrimeiro;
 		Elemento<TL>* pUltimo;
 		int len;
