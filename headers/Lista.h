@@ -1,5 +1,4 @@
 #pragma once
-#include "Elemento.h"
 namespace Lists
 {
 	template <class TL> class Lista
