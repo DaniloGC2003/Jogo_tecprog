@@ -20,4 +20,5 @@ Setas para baixo e para cima;
 - Para jogar as fases:
 "A" e "D" para movimentar o jogador;
 Barra de espaço para fazer o jogador pular;
-"E" para atirar projéteis.
+"E" para atirar projéteis;
+"Esc" para sair da fase e voltar ao menu.
