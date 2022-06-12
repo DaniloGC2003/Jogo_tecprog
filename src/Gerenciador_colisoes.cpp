@@ -14,6 +14,7 @@ namespace Gerenciadores
 	{
 		pPersonagens = nullptr;
 		pEstaticos = nullptr;
+		pProjeteis = nullptr;
 	}
 
 	void Gerenciador_colisoes::setpPersonagens(Lists::ListaEntidades* pP)

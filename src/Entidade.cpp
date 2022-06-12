@@ -13,6 +13,7 @@ namespace Entities
     }
 
     Entidade::~Entidade() {
+        pColisoes = nullptr;
     }
 
     void Entidade::mudarPosicao(coordenadas::vetorfloat pos) {

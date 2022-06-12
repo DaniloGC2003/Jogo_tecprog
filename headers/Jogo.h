@@ -19,12 +19,7 @@ private:
 
 	Gerenciadores::Gerenciador_grafico grafico;
 
-
 	Menu menu;
-	
-
-	sf::Text mostraVida;
-	sf::Font* fonte;
 
 	bool noMenu;
 	bool naPrimeiraFase;

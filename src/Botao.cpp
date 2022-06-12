@@ -34,7 +34,8 @@ Botao::Botao(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pG
 }
 
 Botao::~Botao() {
-
+    texturapadrao = nullptr;
+    texturaselecionada = nullptr;
 }
 
 void Botao::seleciona(const bool selecionado) {

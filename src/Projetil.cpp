@@ -11,7 +11,6 @@ namespace Entities
 	Projetil::~Projetil()
 	{
 		pJogador = nullptr;
-		pColisoes = nullptr;
 	}
 
 	bool Projetil::verificaColisao_personagens()

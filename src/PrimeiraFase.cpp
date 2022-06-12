@@ -3,7 +3,64 @@
 PrimeiraFase::PrimeiraFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho):
 	Fase(pos, pGraf, caminho), numLesmas(rand() % 2 + 3), numMonstros(rand() % 2 + 3), numBarris(rand() % 2 + 3), numLagos(rand() % 2 + 3)	//cada entidade pode ter de 3 a 4 instancias
 {
+
+	inicializaFase();
+}
+
+PrimeiraFase::PrimeiraFase() : Fase(), numLesmas(0), numMonstros(0), numBarris(0), numLagos(0)
+{
+}
+
+PrimeiraFase::~PrimeiraFase()
+{
+	personagens.deletatudo();
+	estaticas.deletatudo();
+}
+
+void PrimeiraFase::inicializaFase()
+{
+	//gerando numeros aleatorios para instanciacao de personagens:
+	numLesmas = rand() % 2 + 3;
+	numMonstros = rand() % 2 + 3;
+	numBarris = rand() % 2 + 3;
+	numLagos = rand() % 2 + 3;
+
+	jogador->setVida(100);
+	jogador->mudarPos(coordenadas::vetorfloat(50.f, 110.f));
+
+	while (personagens.getTamanho() > 1)
+	{
+		personagens.deleteEntidade(personagens.getEntidade(1));//deleta todos menos o jogador
+	}
+	estaticas.deletatudo();
+
 	Entities::Entidade* pEnt;
+	
+	//inicializando lesmas:
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(780.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(1050.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	if (numLesmas > 3)
+	{
+		pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(1450.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
+		personagens.pushEntidade(pEnt);
+	}
+
+	//inicializando monstros:
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(2000.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(2500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+	personagens.pushEntidade(pEnt);
+	if (numMonstros > 3)
+	{
+		pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(3000.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
+		personagens.pushEntidade(pEnt);
+	}
 
 	//inicializando plataformas:
 	Entities::Plataforma* pP;
@@ -40,56 +97,6 @@ PrimeiraFase::PrimeiraFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciad
 		estaticas.pushEntidade(pEnt);
 	}
 
-	inicializaFase();
-}
-
-PrimeiraFase::PrimeiraFase() : Fase(), numLesmas(0), numMonstros(0), numBarris(0), numLagos(0)
-{
-}
-
-PrimeiraFase::~PrimeiraFase()
-{
-	personagens.deletatudo();
-	estaticas.deletatudo();
-}
-
-void PrimeiraFase::inicializaFase()
-{
-	jogador->setVida(100);
-	jogador->mudarPos(coordenadas::vetorfloat(50.f, 110.f));
-
-	while (personagens.getTamanho() > 1)
-	{
-		personagens.deleteEntidade(personagens.getEntidade(1));//deleta todos menos o jogador
-	}
-
-	Entities::Entidade* pEnt;
-	
-	//inicializando lesmas:
-	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(350.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
-	personagens.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(780.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
-	personagens.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(1050.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
-	personagens.pushEntidade(pEnt);
-	if (numLesmas > 3)
-	{
-		pEnt = static_cast<Entities::Entidade*>(new Entities::Lesma(coordenadas::vetorfloat(1450.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Lesma.png", jogador, &Colisoes));
-		personagens.pushEntidade(pEnt);
-	}
-
-	//inicializando monstros:
-	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(1500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
-	personagens.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(2000.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
-	personagens.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(2500.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
-	personagens.pushEntidade(pEnt);
-	if (numMonstros > 3)
-	{
-		pEnt = static_cast<Entities::Entidade*>(new Entities::Monstro(coordenadas::vetorfloat(3000.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Monstro.png", jogador, &Colisoes));
-		personagens.pushEntidade(pEnt);
-	}
 }
 
 void PrimeiraFase::executar()

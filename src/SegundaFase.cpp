@@ -3,49 +3,6 @@
 SegundaFase::SegundaFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho):
 	Fase(pos, pGraf, caminho), numLesmas(rand() % 2 + 3), numMonstros(rand() % 2 + 3), numBarris(rand() % 2 + 3), numAguas(rand()%2+3)	
 {
-	Entities::Entidade* pEnt;
-
-	//inicializando plataformas:
-	Entities::Plataforma* pP;
-	pP = new Entities::Plataforma(coordenadas::vetorfloat(250.f, 300.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
-	pP->getAnimacao()->mudaEscala(10.f, 1.f);
-	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
-	pP = new Entities::Plataforma(coordenadas::vetorfloat(950.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
-	pP->getAnimacao()->mudaEscala(10.f, 1.f);
-	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
-	pP = new Entities::Plataforma(coordenadas::vetorfloat(1600.f, 100.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
-	pP->getAnimacao()->mudaEscala(10.f, 1.f);
-	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
-	pP = new Entities::Plataforma(coordenadas::vetorfloat(3400.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
-	pP->getAnimacao()->mudaEscala(50.f, 1.f);
-	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
-	
-	//inicializando barris:
-	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(450.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
-	estaticas.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(950.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
-	estaticas.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(1600.f, 65.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
-	estaticas.pushEntidade(pEnt);
-	if (numBarris > 3)
-	{
-		pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(2440.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
-		estaticas.pushEntidade(pEnt);
-	}
-
-	//inicializando aguas:
-	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
-	estaticas.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(800.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
-	estaticas.pushEntidade(pEnt);
-	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(1450.f, 90.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
-	estaticas.pushEntidade(pEnt);
-	if (numAguas > 3)
-	{
-		pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(2600.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
-		estaticas.pushEntidade(pEnt);
-	}
-
 	inicializaFase();
 }
 
@@ -57,10 +14,17 @@ SegundaFase::~SegundaFase()
 {
 	personagens.deletatudo();
 	estaticas.deletatudo();
+
+	tartaruga = nullptr;
 }
 
 void SegundaFase::inicializaFase()
 {
+	numLesmas = rand() % 2 + 3;
+	numMonstros = rand() % 2 + 3;
+	numBarris = rand() % 2 + 3;
+	numAguas = rand() % 2 + 3;
+
 	jogador->setVida(100);
 	jogador->mudarPos(coordenadas::vetorfloat(50.f, 110.f));
 
@@ -68,6 +32,7 @@ void SegundaFase::inicializaFase()
 	{
 		personagens.deleteEntidade(personagens.getEntidade(1));//deleta todos menos o jogador
 	}
+	estaticas.deletatudo();
 
 	Entities::Entidade* pEnt;
 
@@ -100,6 +65,48 @@ void SegundaFase::inicializaFase()
 	//inicializando tartaruga:
 	tartaruga = new Entities::Tartaruga(coordenadas::vetorfloat(3850.f, 110.f), getAnimacao()->getpGraf(), "texturas_e_fontes/Battle_turtle.png", jogador, &Colisoes, 500);
 	personagens.pushEntidade(static_cast<Entities::Entidade*>(tartaruga));
+
+	//inicializando plataformas:
+	Entities::Plataforma* pP;
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(250.f, 300.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(10.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(950.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(10.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(1600.f, 100.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(10.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+	pP = new Entities::Plataforma(coordenadas::vetorfloat(3400.f, 200.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
+	pP->getAnimacao()->mudaEscala(50.f, 1.f);
+	estaticas.pushEntidade(static_cast<Entities::Entidade*>(pP));
+
+	//inicializando barris:
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(450.f, 265.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(950.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(1600.f, 65.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+	estaticas.pushEntidade(pEnt);
+	if (numBarris > 3)
+	{
+		pEnt = static_cast<Entities::Entidade*> (new Entities::Barril(coordenadas::vetorfloat(2440.f, 165.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Fishbarrel4.png"));
+		estaticas.pushEntidade(pEnt);
+	}
+
+	//inicializando aguas:
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(300.f, 290.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(800.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+	estaticas.pushEntidade(pEnt);
+	pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(1450.f, 90.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+	estaticas.pushEntidade(pEnt);
+	if (numAguas > 3)
+	{
+		pEnt = static_cast<Entities::Entidade*> (new Entities::Agua(coordenadas::vetorfloat(2600.f, 190.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/Water.png", jogador));
+		estaticas.pushEntidade(pEnt);
+	}
+
 }
 
 void SegundaFase::executar()

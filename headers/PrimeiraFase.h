@@ -9,8 +9,6 @@ private:
     int numBarris;
     int numLagos;
 
-
-
 public:
     PrimeiraFase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
     PrimeiraFase();

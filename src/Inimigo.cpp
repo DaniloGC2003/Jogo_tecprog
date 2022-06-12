@@ -11,6 +11,5 @@ namespace Entities
 	Inimigo::~Inimigo()
 	{
 		pJogador = nullptr;
-		pColisoes = nullptr;
 	}
 }

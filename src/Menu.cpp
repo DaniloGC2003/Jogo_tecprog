@@ -39,7 +39,8 @@ Menu::Menu(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGra
     executar();
 }
 
-Menu::Menu() {
+Menu::Menu() : cont(0), pressionado(0), selecionado(0), max(0), min(0)
+{
     
 }
 

@@ -18,8 +18,6 @@ private:
 	std::string info;
 	sf::Text texto;
 
-	
-
 public:
 	Texto(coordenadas::vetorfloat pos = coordenadas::vetorfloat(0, 0), Gerenciadores::Gerenciador_grafico* pGraf = NULL, std::string info = "", const char* path = "caminho.ttf");
 	~Texto();

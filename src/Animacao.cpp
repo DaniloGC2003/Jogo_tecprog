@@ -18,6 +18,7 @@ namespace Animation
 
     Animacao::~Animacao() 
     {
+        textura = nullptr;
         pGraf = nullptr;
     }
 

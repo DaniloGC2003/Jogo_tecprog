@@ -36,6 +36,7 @@ Fase::Fase() : Entities::Ente(), Colisoes(), camera(), personagens(), estaticas(
 
 Fase::~Fase()
 {
+	jogador = nullptr;
 }
 
 void Fase::mostraVidaJogador()
