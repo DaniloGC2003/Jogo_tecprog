@@ -35,11 +35,15 @@ void Jogo::Executar()
                     naPrimeiraFase = true;
                     fase1.inicializaFase();
                 }
-                if (menu.seleciona() == 1)
+                else if (menu.seleciona() == 1)
                 {
                     noMenu = false;
                     naSegundaFase = true;
                     fase2.inicializaFase();
+                }
+                else if (menu.seleciona() == 3)
+                {
+                    grafico.getJanela()->close();
                 }
             }
 

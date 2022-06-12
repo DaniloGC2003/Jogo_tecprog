@@ -133,7 +133,7 @@ namespace Fases
 
 	bool SegundaFase::jogoAtivo()
 	{
-		//se jogador morreu ou se matou a tartaruga
+		//se jogador morreu ou se matou a tartaruga ou se pressionou Esc
 		if (jogador->getVida() == 0 || tartaruga->getVida() == 0 || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
 			return false;

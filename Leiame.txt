@@ -1,5 +1,6 @@
 Esse projeto foi produzido como trabalho para a disciplina de Técnicas de Programação, da UTFPR, ministrada pelo professor Jean Marcelo Simão.
-O jogo foi desenvolvido na linguagem de programação C++, e a IDE de escolha foi o Visual Studio, versão de 2022. Quanto à biblioteca gráfica, foi utilizada a SFML, versão 32 bits 2.5.1.
+O jogo foi desenvolvido na linguagem de programação C++, e a IDE de escolha foi o Visual Studio para Windows, versão de 2022. 
+Quanto à biblioteca gráfica, foi utilizada a SFML, versão 32 bits 2.5.1.
 
 
 Referências utilizadas para compor o trabalho:

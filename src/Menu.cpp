@@ -114,7 +114,7 @@ int Menu::seleciona() {
         }
         if (vectordeBotoes[3]->getSelecionado())
         {
-            getAnimacao()->getpGraf()->getJanela()->close();
+            return 3;
         }
     }
     return -1;//nada foi selecionado

@@ -118,7 +118,7 @@ namespace Fases
 
 	bool PrimeiraFase::jogoAtivo()
 	{
-		//se morreu ou se chegou ao fim do mapa
+		//se morreu ou se chegou ao fim do mapa ou se pressionou Esc
 		if (jogador->getVida() == 0 || jogador->getPos().getX() > 3500 || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
 			return false;

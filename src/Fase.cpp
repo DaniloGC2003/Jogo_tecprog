@@ -25,10 +25,6 @@ namespace Fases
 
 		personagens.pushEntidade(jogador);
 
-		/*Entities::Plataforma* pP;
-		pP = new Plataforma(coordenadas::vetorfloat(1000.f, 300.f), getAnimacao()->getpGraf(), &Colisoes, "texturas_e_fontes/preview.png");
-		pP->getAnimacao()->mudaEscala(200.f, 1.f);
-		estaticas.pushEntidade(pP);*/
 	}
 
 	Fase::Fase() : Entities::Ente(), Colisoes(), camera(), personagens(), estaticas(), projeteis(), jogador(nullptr)
