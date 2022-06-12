@@ -1,7 +1,7 @@
 #include "../headers/Projetil.h"
 namespace Entities
 {
-	Projetil::Projetil(Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC, coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, bool frente, const char* pathImagem, int dano)
+	Projetil::Projetil(Personagens::Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC, coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, bool frente, const char* pathImagem, int dano)
 		: Entidade(pos, pGraf, pGC, pathImagem), dano(dano), pJogador(pJ), posicaoInicial(pos), paraFrente(frente)
 	{
 	}

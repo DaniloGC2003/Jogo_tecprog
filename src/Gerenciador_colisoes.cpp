@@ -95,7 +95,7 @@ namespace Gerenciadores
 
 	void Gerenciador_colisoes::colidir()
 	{
-		static_cast<Entities::Jogador*>(pPersonagens->getEntidade(0))->setPodePular(false);
+		static_cast<Entities::Personagens::Jogador*>(pPersonagens->getEntidade(0))->setPodePular(false);
 		int i, j;
 		//para cada personagem, verifica-se se houve colisao. Se sim, o personagem tem sua posicao redefinida
 		for (i = 0; i < pPersonagens->getTamanho(); i++)
@@ -120,7 +120,7 @@ namespace Gerenciadores
 							(pPersonagens->getEntidade(i)->Move(coordenadas::vetorfloat(0.0f, intersecao.getY())));
 							if (i == 0)//se estiver analisando o jogador
 							{
-								static_cast<Entities::Jogador*>(pPersonagens->getEntidade(i))->setPodePular(true);
+								static_cast<Entities::Personagens::Jogador*>(pPersonagens->getEntidade(i))->setPodePular(true);
 							}
 						}
 						else

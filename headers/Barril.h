@@ -1,13 +1,16 @@
 #pragma once
 #include "Obstaculo.h"
 namespace Entities {
-
-	class Barril : public Obstaculo
+	namespace Obstaculos
 	{
-	private:
-	public:
-		Barril(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
-		Barril();
-		~Barril();
-	};
+		class Barril : public Obstaculo
+		{
+		private:
+		public:
+			Barril(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
+			Barril();
+			~Barril();
+		};
+	}
+
 }

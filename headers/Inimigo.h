@@ -8,9 +8,9 @@ namespace Entities
 		public Personagem
 	{
 	protected:
-		Jogador* pJogador;
+		Personagens::Jogador* pJogador;
 	public:
-		Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC, int pontosVida = 100);
+		Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Personagens::Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC, int pontosVida = 100);
 		Inimigo();
 		virtual ~Inimigo();
 

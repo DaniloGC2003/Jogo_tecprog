@@ -1,7 +1,7 @@
 #include "../headers/Inimigo.h"
 namespace Entities
 {
-	Inimigo::Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC, int pontosVida)
+	Inimigo::Inimigo(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* pathImagem, Personagens::Jogador* pJ, Gerenciadores::Gerenciador_colisoes* pGC, int pontosVida)
 		: Personagem(pos, pGraf, pGC, pathImagem, pontosVida), pJogador(pJ)
 	{
 	}

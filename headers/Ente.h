@@ -1,5 +1,4 @@
 #pragma once
-#include "ID.h"
 #include "Animacao.h"
 #include "Vetor.h"
 namespace Entities

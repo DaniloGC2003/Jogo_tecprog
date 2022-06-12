@@ -1,13 +1,16 @@
 #pragma once
 #include "Obstaculo.h"
 namespace Entities {
-
-	class Plataforma : public Obstaculo
+	namespace Obstaculos
 	{
-	private:
-	public:
-		Plataforma(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
-		Plataforma();
-		~Plataforma();
-	};
+		class Plataforma : public Obstaculo
+		{
+		private:
+		public:
+			Plataforma(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, Gerenciadores::Gerenciador_colisoes* pGC, const char* caminho);
+			Plataforma();
+			~Plataforma();
+		};
+	}
+
 }

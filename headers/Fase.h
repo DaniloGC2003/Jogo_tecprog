@@ -11,30 +11,34 @@
 #include "Barril.h"
 #include "Lago.h"
 #include "Agua.h"
-class Fase :
-	public Entities::Ente
+namespace Fases
 {
-protected:
-	Gerenciadores::Gerenciador_colisoes Colisoes;
+	class Fase :
+		public Entities::Ente
+	{
+	protected:
+		Gerenciadores::Gerenciador_colisoes Colisoes;
 
-	sf::View camera;
-	Lists::ListaEntidades personagens;
-	Lists::ListaEntidades estaticas;
-	Lists::ListaEntidades projeteis;
+		sf::View camera;
+		Lists::ListaEntidades personagens;
+		Lists::ListaEntidades estaticas;
+		Lists::ListaEntidades projeteis;
 
-	Entities::Jogador* jogador;
+		Entities::Personagens::Jogador* jogador;
 
-	Texto HP;
+		Texto HP;
 
-public:
-	Fase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
-	Fase();
-	~Fase();
+	public:
+		Fase(coordenadas::vetorfloat pos, Gerenciadores::Gerenciador_grafico* pGraf, const char* caminho);
+		Fase();
+		~Fase();
 
-	void mostraVidaJogador();
-	virtual void inicializaFase() = 0;
-	virtual void executar() = 0;
-	virtual bool jogoAtivo() = 0;
-};
+		void mostraVidaJogador();
+		virtual void inicializaFase() = 0;
+		virtual void executar() = 0;
+		virtual bool jogoAtivo() = 0;
+	};
+
+}
 
 

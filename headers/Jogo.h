@@ -25,8 +25,8 @@ private:
 	bool naPrimeiraFase;
 	bool naSegundaFase;
 
-	PrimeiraFase fase1;
-	SegundaFase fase2;
+	Fases::PrimeiraFase fase1;
+	Fases::SegundaFase fase2;
 
 public:
 	Jogo();

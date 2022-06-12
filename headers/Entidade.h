@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Ente.h"
-#include "ID.h"
 #include "Vetor.h"
 #include <SFML\Graphics.hpp>
 namespace Gerenciadores
